@@ -1,9 +1,36 @@
 
 
-const courseContent = () => {
-  return (
-    <div>courseContent</div>
-  )
+
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from "@mui/material"
+import { CourseInterFace } from "components/types"
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ReactPlayer from 'react-player'
+interface Props {
+    course: CourseInterFace[]
 }
 
-export default courseContent
+const CourseContent = ({ course }: Props) => {
+    console.log(course)
+    return (
+        <Box>
+            <Typography>Course content</Typography>
+            {course.map((content, index) => (
+                <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6' }}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Section {index + 1} :    {content.title}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            malesuada lacus ex, sit amet blandit leo lobortis eget.
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>))}
+        </Box>
+    )
+}
+export default CourseContent

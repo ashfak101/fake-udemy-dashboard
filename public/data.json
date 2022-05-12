@@ -1,6 +1,6 @@
 [
-    {   "id":1,
-        "tile":"Course Introduction",
+    {   "id":"lesson1",
+        "title":"Course Introduction",
         
         "module":[
             {
@@ -28,8 +28,8 @@
         "length":3,
         "duration":"3"
     },
-    {   "id":1,
-        "tile":"Course Introduction",
+    {   "id":"lesson2",
+        "title":"Course Introduction",
         
         "module":[
             {

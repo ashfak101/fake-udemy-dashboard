@@ -3,6 +3,7 @@ import React from 'react'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 const MobileNav = () => {
     const navItems=['Web Development','Mobile Development','Game Development','Enterpreneurship','Business Analytics & Inteligence','Digital Marketing','Graphic Design','IT Certification']
+   
   return (
     <Box sx={{width:'250px'}}> 
         {/* <Box  sx={{position:'absolute',left:'240px',zIndex:10, }}>

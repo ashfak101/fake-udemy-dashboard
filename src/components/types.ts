@@ -1,6 +1,6 @@
 export interface  CourseInterFace{
     id:       number;
-    tile:     string;
+    title:     string;
     module:   Module[];
     length:   number;
     duration: string;
