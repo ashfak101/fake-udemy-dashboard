@@ -1,0 +1,60 @@
+[
+    {   "id":1,
+        "tile":"Course Introduction",
+        
+        "module":[
+            {
+                "id":1,
+                "lessonTitle":"Welcome to This Course",
+                "video":"https://youtu.be/rNmxANyH0BU",
+                "duration":"2",
+                "isCompleted": false
+            },
+            {
+                "id":2,
+                "lessonTitle":"READ BEFORE YOU ",
+                "content":"<h2>READ BEFORE YOU START</h2> <h3>Welcome!</h3> <p>Welcome to this course. I used to charge $19 for it but made it free to make it accessible to everyone here at Udemy!</p> <p>Please watch all the lectures to learn everything I cover in this course.</p> <br/> <br/> <h3>Updates & community<h3/> <p>👉 I share updates on new courses or other important stuff on twitter:  <a href='www.fb.com'>@jonasschmedtman</a></p><p>👉 I share updates on new courses or other important stuff on twitter:  <a href='www.fb.com'>@jonasschmedtman</a></p><p>👉 I share updates on new courses or other important stuff on twitter:  <a href='www.fb.com'>@jonasschmedtman</a></p>",
+                "duration":"2",
+                "isCompleted": false
+            },
+            {
+                "id":3,
+                "lessonTitle":"READ BEFORE YOU ",
+                "content":"<h2>E-Book Resources 2.0</h2>  <p>The course used to come with a resources e-book. However, in order to keep it updated, I transitioned the e-book to a website, which you can find below. It contains tons of useful resources for design and development, that you will find very useful 😃</p> <br/> <br/> <h3>Updates & community<h3/> <p>👉 I share updates on new courses or other important stuff on twitter:  <a href='www.fb.com'>@jonasschmedtman</a></p><p>👉 I share updates on new courses or other important stuff on twitter:  <a href='www.fb.com'>@jonasschmedtman</a></p><p>👉 I share updates on new courses or other important stuff on twitter:  <a href='www.fb.com'>@jonasschmedtman</a></p>",
+                "duration":"2",
+                "isCompleted": false
+            }
+        ],
+        "length":3,
+        "duration":"3"
+    },
+    {   "id":1,
+        "tile":"Course Introduction",
+        
+        "module":[
+            {
+                "id":4,
+                "lessonTitle":"Welcome to This Course",
+                "video":"https://youtu.be/rNmxANyH0BU",
+                "duration":"2",
+                "isCompleted": false
+            },
+            {
+                "id":5,
+                "lessonTitle":"Welcome to This Course",
+                "video":"https://youtu.be/rNmxANyH0BU",
+                "duration":"2",
+                "isCompleted": false
+            },
+            {
+                "id":6,
+                "lessonTitle":"Welcome to This Course",
+                "video":"https://youtu.be/rNmxANyH0BU",
+                "duration":"2",
+                "isCompleted": false
+            }
+        ],
+        "length":3,
+        "duration":"3"
+    }
+]
