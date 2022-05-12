@@ -15,15 +15,16 @@ const CourseContent = ({ course }: Props) => {
         <Box>
             <Typography>Course content</Typography>
             {course.map((content, index) => (
-                <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6' }}>
+                <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', }}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
+                        aria-controls="panel1bh-content"
+          id="panel1bh-header"
+          
                     >
-                        <Typography>Section {index + 1} :    {content.title}</Typography>
+                        <Typography >Section {index + 1} :    {content.title}</Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails sx={{mt:""}}>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
