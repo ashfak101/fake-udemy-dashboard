@@ -1,10 +1,23 @@
 import Banner from 'components/home/Banner'
 import Course from 'components/home/Course'
-import type { NextPage } from 'next'
+import { MainCourse } from 'components/types'
+import { NextPage } from 'next'
 import Head from 'next/head'
 
+export const getStaticProps = async () => {
+  const res = await fetch(' https://jsonkeeper.com/b/N52R')
+  const data = await res.json()
+  return {
+    props: {
+      data: data
+    }
+  }
+}
 
-const Home: NextPage = () => {
+
+
+const Home: NextPage<{data:MainCourse[]}> = ({data}) => {
+  console.log(data)
   return (
     <div >
       <Head>
@@ -13,7 +26,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner/>
-      <Course/>
+      <Course data={data}/>
       
     </div>
   )

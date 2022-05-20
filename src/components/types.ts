@@ -1,6 +1,13 @@
-export interface  CourseInterFace{
-    id:       number;
-    title:     string;
+export interface MainCourse {
+    id:            number;
+    title:         string;
+    courseName:    string;
+    courseContent: CourseInterFace[];
+}
+
+export interface CourseInterFace {
+    id:       string;
+    title:    string;
     module:   Module[];
     length:   number;
     duration: string;
