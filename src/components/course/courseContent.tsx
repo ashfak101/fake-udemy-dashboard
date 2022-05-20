@@ -1,11 +1,13 @@
 
 
 
-import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from "@mui/material"
+import { Accordion, AccordionDetails, AccordionSummary, Box, Checkbox, Typography } from "@mui/material"
 import {MainCourse, Module } from "components/types"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from "next/router";
 import Link from "next/link";
+import SlowMotionVideoIcon from '@mui/icons-material/SlowMotionVideo';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 interface Props {courses:MainCourse;
     // setLessonId: (lessonId: number) => void;
 }
@@ -14,24 +16,30 @@ const CourseContent = ({ courses }: Props) => {
    
     return (
         <Box>
-            <Typography>Course content</Typography>
+            <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem'}}>Course content</Typography>
             {courses.courseContent.map((content, index) => (
                 <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', }}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1bh-content"
                         id="panel1bh-header"
-
+                       
                     >
-                        <Typography >Section {index + 1} :    {content.title}</Typography>
+                      <Box>
+                      <Typography sx={{color:'#333',fontWeight:'700'}}>Section {index + 1} :    {content.title}</Typography>
+                        <Typography sx={{fontSize:'13px'}}> 0/{content.length} | {content.duration}min </Typography>
+                      </Box>
                     </AccordionSummary>
                   {
                       content.module.map((lesson:Module, index:number) => (
                      <Link key={lesson.id} href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
                         <AccordionDetails  sx={{ mt: "" }}>
                         <Typography >
-                            {lesson.id} : {lesson.lessonTitle}
+                        <Checkbox  />   {lesson.id} . {lesson.lessonTitle}
                         </Typography>
+                        {
+                            lesson.video ? <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><SlowMotionVideoIcon sx={{fontSize:'17px',mr:1}}/>   {lesson.duration}min</Box> : <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><PostAddIcon sx={{fontSize:'17px',color:'#333',mr:1}}/>   {lesson.duration}min</Box>
+                        }
                     </AccordionDetails>
                      </Link>
                       ))

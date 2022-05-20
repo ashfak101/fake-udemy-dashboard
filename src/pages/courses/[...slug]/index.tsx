@@ -67,11 +67,13 @@ const Index = () => {
 
   return (
     <>
-      <Box sx={{display:'flex'}}>
+      <Box sx={{display:'flex',flexDirection:{
+        xs:'column',md:'row'
+      }}}>
       <Box sx={{ width: '70%' }}>
           <LessonDetails module={module} ></LessonDetails>
         </Box>
-        <Box sx={{ width: '30%' }}>
+        <Box sx={{ width: '30%', background: '#f2f7f6' }}>
           {
             courses?.map(course=>(
               <>

@@ -77,7 +77,7 @@ const Navbar = () => {
                                     md: "flex"
                                 },
                                 alignItems: "center",
-                                width: {md:'500px',lg:'1050px',},
+                                width: {md:'500px',lg:'800px',},
                                 bgcolor: "#fff",
 
                                 border: "1px solid #333",
