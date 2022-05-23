@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import CourseContent from 'components/course/courseContent';
 import LessonDetails from 'components/course/LessonDetails';
+import CourseNav from 'components/shared/CourseNav';
 import { useRouter } from 'next/router'
 import { type } from 'os';
 import React, { useEffect, useState } from 'react'
@@ -18,7 +19,7 @@ const Index = () => {
   const [lessonId,setLessonID]=useState<string>();
   const [moduleId,setModuleId]=useState<string | number>()
   const [module,setModule]=useState<Module>()
-  
+  const [progress,setProgress]=useState<number>()
   useEffect(()=>{
     fetch('/api/courses-api')
     .then(res=> res.json())
@@ -62,22 +63,25 @@ const Index = () => {
    })
    setModule(singleModule)
    },[slug,url,singleModule])
- 
+   const handleProgress = (p:number)=>{
+
+   }
  
 
   return (
     <>
+    <CourseNav/>
       <Box sx={{display:'flex',flexDirection:{
         xs:'column',md:'row'
       }}}>
       <Box sx={{ width: '70%' }}>
-          <LessonDetails module={module} ></LessonDetails>
+          <LessonDetails module={module}></LessonDetails>
         </Box>
         <Box sx={{ width: '30%', background: '#f2f7f6' }}>
           {
             courses?.map(course=>(
               <>
-                 <CourseContent key={course.id} courses={course} ></CourseContent>
+                 <CourseContent key={course.id} courses={course}  handleProgress={handleProgress}></CourseContent>
               </>
             ))
           }

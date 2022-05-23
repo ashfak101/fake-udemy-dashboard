@@ -9,11 +9,14 @@ import Link from "next/link";
 import SlowMotionVideoIcon from '@mui/icons-material/SlowMotionVideo';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 interface Props {courses:MainCourse;
+    // handleProgress: (e:any,progress:number)=>void
     // setLessonId: (lessonId: number) => void;
 }
 
 const CourseContent = ({ courses }: Props) => {
-   
+    const handleProgress=()=>{
+        console.log('progress')
+    }
     return (
         <Box>
             <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem'}}>Course content</Typography>
@@ -35,7 +38,8 @@ const CourseContent = ({ courses }: Props) => {
                      <Link key={lesson.id} href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
                         <AccordionDetails  sx={{ mt: "" }}>
                         <Typography >
-                        <Checkbox  />   {lesson.id} . {lesson.lessonTitle}
+                        <Checkbox />   {lesson.id} . {lesson.lessonTitle}
+                        
                         </Typography>
                         {
                             lesson.video ? <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><SlowMotionVideoIcon sx={{fontSize:'17px',mr:1}}/>   {lesson.duration}min</Box> : <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><PostAddIcon sx={{fontSize:'17px',color:'#333',mr:1}}/>   {lesson.duration}min</Box>
