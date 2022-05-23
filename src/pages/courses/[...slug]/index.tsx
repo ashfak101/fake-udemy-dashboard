@@ -81,7 +81,7 @@ const Index = () => {
           {
             courses?.map(course=>(
               <>
-                 <CourseContent key={course.id} courses={course}  handleProgress={handleProgress}></CourseContent>
+                 <CourseContent key={course.id} courses={course}></CourseContent>
               </>
             ))
           }
