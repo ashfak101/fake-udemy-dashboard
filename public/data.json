@@ -48,6 +48,7 @@
                     {
                         "id":5,
                         "lessonTitle":"Beautiful Typography",
+                        "video":"https://youtu.be/a00NRSFgHsY",
                         "duration":"11",
                         "isCompleted": false
                     },
@@ -56,6 +57,84 @@
                         "lessonTitle":"Using Colors Like A Pro",
                         "video":"https://youtu.be/a00NRSFgHsY",
                         "duration":"10",
+                        "isCompleted": false
+                    },
+                    {
+                        "id":7,
+                        "lessonTitle":"Web Design Quiz 1",
+                        "quiz":[
+                            {"id":1,
+                                "question":"A front-end developer works with languages like",
+                                "option":[
+                                    {"id":1,
+                                        "text":"HTML, CSS, and JavaScript","isCorrect":true},
+                                    {"id":2,
+                                        "text":"HTML, CSS, and PHP","isCorrect":false},
+                                    {"id":3,
+                                        "text":"HTML, CSS, and Java","isCorrect":false},
+                                    {"id":4,
+                                        "text":"HTML, CSS, and Python","isCorrect":false}
+                                ],
+                                "answer":1
+                            },{
+                                "id":2,
+                                "question":"Which of the following is not a valid HTML element?",
+                                "option":[
+                                    {"id":1,
+                                        "text":"<img>","isCorrect":false},
+                                    {"id":2,
+                                        "text":"<div>","isCorrect":false},
+                                    {"id":3,
+                                        "text":"<p>","isCorrect":true},
+                                    {"id":4,
+                                        "text":"<h1>","isCorrect":false}
+                                ],
+                                "answer":3
+                            },{
+                                "id":3,
+                                "question":"Which of the following is not a valid CSS property?",
+                                "option":[
+                                    {"id":1,
+                                        "text":"font-size","isCorrect":false},
+                                    {"id":2,
+                                        "text":"font-family","isCorrect":true},
+                                    {"id":3,
+                                        "text":"font-color","isCorrect":false},
+                                    {"id":4,
+                                        "text":"font-style","isCorrect":false}
+                                ],
+                                "answer":2
+                            },{
+                                "id":4,
+                                "question":"Which of the following is not a valid JavaScript variable name?",
+                                "option":[
+                                    {"id":1,
+                                        "text":"2names","isCorrect":false},
+                                    {"id":2,
+                                        "text":"_name","isCorrect":false},
+                                    {"id":3,
+                                        "text":"name","isCorrect":true},
+                                    {"id":4,
+                                        "text":"-name","isCorrect":false}
+                                ],
+                                "answer":3
+                            },{
+                                "id":5,
+                                "question":"Which of the following is not a valid JavaScript variable name?",
+                                "option":[
+                                    {"id":1,
+                                        "text":"2names","isCorrect":false},
+                                    {"id":2,
+                                        "text":"_name","isCorrect":false},
+                                    {"id":3,
+                                        "text":"name","isCorrect":true},
+                                    {"id":4,
+                                        "text":"-name","isCorrect":false}
+                                ],
+                                "answer":3
+                            }
+                        ],
+                       
                         "isCompleted": false
                     }
                 ],
