@@ -20,4 +20,17 @@ export interface Module {
     duration:    string;
     isCompleted: boolean;
     content?:    string;
+    quiz?:       Quiz[];
+}
+export interface Quiz {
+    id:       number;
+    question: string;
+    option:   Option[];
+    answer:   number;
+}
+
+export interface Option {
+    id:        number;
+    text:      string;
+    isCorrect: boolean;
 }

@@ -19,7 +19,7 @@ const CourseContent = ({ courses }: Props) => {
     }
     return (
         <Box>
-            <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem'}}>Course content</Typography>
+            <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem',border:'1px solid #d1d7dc'}}>Course content</Typography>
             {courses.courseContent.map((content, index) => (
                 <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', }}>
                     <AccordionSummary
