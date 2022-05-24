@@ -6,7 +6,8 @@ import React, { useEffect } from 'react'
 import ReactPlayer from 'react-player/youtube'
 
 interface Props {
-  module: Module | undefined;
+  module: any;
+
 
 }
 const LessonDetails = ({ module }: Props) => {
@@ -14,31 +15,45 @@ const LessonDetails = ({ module }: Props) => {
   const [currentQ, setCurrentQ] = React.useState<number>(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
   const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
-  const [isCorrect, setIsCorrect] = React.useState<boolean>(false);
+  const [isCorrect, setIsCorrect] = React.useState<string>('');
   const handleChange = (id: Option) => {
     setIsDisabled(false);
     setAnswer(id)
   }
   const handleOnClick = () => {
     if (answer?.isCorrect) {
-      alert("Correct")
-      setIsCorrect(true)
+      
+      setIsCorrect("Correct")
     }
     else {
-      alert("Wrong")
+      module?.quiz[currentQ].option.forEach((q: any) => {
+      
+          if(q.id ==answer?.id){
+           q.isChecked = true
+           setIsCorrect("Incorrect")
+
+          }
+       
+      })
     }
   }
   const handleNext = () => {
     setShowQuestion(false);
     
-    if (currentQ + 1 < module?.quiz?.length) {
+    if (currentQ + 1 < 5) {
       setCurrentQ((prev: number) => prev + 1);
     }
 
   };
   useEffect(() => {
     setShowQuestion(true)
-  }, [currentQ])
+    module?.quiz?.forEach((q: any) => {
+      q.option.forEach((o: any) => {
+        o.isChecked = false;
+      })
+    })
+  }, [currentQ,module?.quiz])
+  console.log(module?.quiz)
   return (
     <>
     { module?.content || module?.video ?<Box sx={{ height: '610px', overflowY: 'auto' }}>
@@ -65,9 +80,9 @@ const LessonDetails = ({ module }: Props) => {
               {showQuestion && <FormControl sx={{ width: "100%" }} >
 
                 <RadioGroup>
-                  {module?.quiz[currentQ].option.map((opt, index) => {
+                  {module?.quiz[currentQ].option.map((opt:Option, index:number) => {
                     return (
-                      <FormControlLabel sx={{ width: '100%', border: '0.685px solid #333', my: 1 }} onChange={() => handleChange(opt)} key={index} value={opt.id} control={<Radio />} label={opt.text} />
+                      <FormControlLabel sx={{ width: '100%', border: '0.685px solid #333', my: 1 }} onChange={() => handleChange(opt)} key={index} value={opt.id} disabled={opt.isChecked} control={<Radio />} label={opt.text} />
                     )
                   })
                   }

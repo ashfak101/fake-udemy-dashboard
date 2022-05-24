@@ -14,7 +14,7 @@ const Index = () => {
   const {slug}:any =router.query
   const [courses,setCourses]= useState<MainCourse[]|undefined >();
   const [allCourse,setAllCourse]=useState<CourseInterFace[]>();
-  const [url,setUrl]=useState<Array>();
+  const [url,setUrl]=useState<Array<string>>();
   const [courseName,setCourseName]=useState<string>()
   const [lessonId,setLessonID]=useState<string>();
   const [moduleId,setModuleId]=useState<string | number>()
@@ -74,10 +74,10 @@ const Index = () => {
       <Box sx={{display:'flex',flexDirection:{
         xs:'column',md:'row'
       }}}>
-      <Box sx={{ width: '70%' }}>
+      <Box sx={{ width: {xs:'100%',md:'70%' }}}>
           <LessonDetails module={module}></LessonDetails>
         </Box>
-        <Box sx={{ width: '30%', background: '#f2f7f6' }}>
+        <Box sx={{ width:{ xs:'100%',md:'30%' }, background: '#f2f7f6' }}>
           {
             courses?.map(course=>(
               <>

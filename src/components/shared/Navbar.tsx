@@ -61,7 +61,9 @@ const Navbar = () => {
                     >
 
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Link href='/'>
                             <Typography variant="h3" sx={{display:{xs:'none',md:'block',lg:'block'}, color: '#333', fontSize: '35px', fontWeight: '600', fontFamily: 'Roboto sans-serif', letterSpacing: '1px' }}>udemy<Box sx={{ display: 'inline', position: 'absolute', left: '24px', top: '11px', fontWeight: 'bold', color: '#a435f0' }}>^</Box></Typography>
+                            </Link>
                             <Typography variant="h5" sx={{display:{xs:'none',lg:'block'},
                                 color: '#767778', fontSize: '14px', ml: 3, '&:hover': {
                                     color: '#5624d0'
