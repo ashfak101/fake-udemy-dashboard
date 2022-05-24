@@ -21,7 +21,7 @@ const CourseContent = ({ courses }: Props) => {
         <Box>
             <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem',border:'1px solid #d1d7dc'}}>Course content</Typography>
             {courses.courseContent.map((content, index) => (
-                <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', }}>
+                <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', cursor:'pointer'}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1bh-content"
@@ -35,17 +35,20 @@ const CourseContent = ({ courses }: Props) => {
                     </AccordionSummary>
                   {
                       content.module.map((lesson:Module, index:number) => (
-                     <Link key={lesson.id} href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
-                        <AccordionDetails  sx={{ mt: "" }}>
-                        <Typography >
-                        <Checkbox />   {lesson.id} . {lesson.lessonTitle}
+                  
+                        <AccordionDetails  key={lesson.id}  sx={{ mt: "" }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox /><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
+                           
+                            <Typography >  
+                         {lesson.id} . {lesson.lessonTitle}
                         
                         </Typography>
+                          
+                          </Link>  </Box>
                         {
                             lesson.video ? <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><SlowMotionVideoIcon sx={{fontSize:'17px',mr:1}}/>   {lesson.duration}min</Box> : <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><PostAddIcon sx={{fontSize:'17px',color:'#333',mr:1}}/>   {lesson.duration}min</Box>
                         }
                     </AccordionDetails>
-                     </Link>
+                   
                       ))
                   }
                 </Accordion>))}

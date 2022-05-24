@@ -13,8 +13,10 @@ const Course = ({data}:Props) => {
         <Container maxWidth='md'sx={{mt:10}}>
             <Box sx={{width:'230px',height:'229px'}}>
           { data.map(courses => <Paper key={courses.id} elevation={3}>
-                    <Image src="/assets/images/cardimg.jpg" alt='card' width='230px' height='129px'/>
-                   <Box sx={{px:'10px'}}>
+                  <Box>
+                  <Image src="/assets/images/cardimg.jpg" alt='' width='230px' height='129px'/>
+                  </Box>
+                   <Box sx={{px:'10px',cursor:'pointer'}}>
                    <Typography sx={{color:'black',fontSize:'14px',fontWeight:'700'}}>Web Design for Web <br /> Developers Build Beautiful..</Typography>
                  <Link href={`/courses/${courses.courseName}/learn/lesson1/${courses.id}`} passHref><Typography sx={{color:'black',fontSize:'14px',mt:'2px',fontWeight:'400'}}>Jonas Schmedtmann , Web Develper,Designer and Teacher</Typography></Link>
                     <LinearProgress />
