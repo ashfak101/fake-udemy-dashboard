@@ -4,7 +4,7 @@ import StarIcon from '@mui/icons-material/Star';
 import Link from "next/link";
 const CourseNav = () => {
   return (
-    <Box sx={{ height: { xs:'10vh',md:'8vh'},display:'flex',justifyContent:'space-between',alignItems:'center',background:'#1c1d1f',color:'#fff',flexDirection:{
+    <Box sx={{ height: { xs:'10vh',md:'8vh'},borderBottom:'1px dotted #3e4143',display:'flex',justifyContent:'space-between',alignItems:'center',background:'#1c1d1f',color:'#fff',flexDirection:{
       xs:'column',md:'row'
     } }}>
       <Box sx={{display:'flex',alignItems:'center',}}> <Link href='/'>
