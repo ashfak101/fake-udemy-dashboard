@@ -36,7 +36,7 @@ const CourseContent = ({ courses }: Props) => {
                   {
                       content.module.map((lesson:Module, index:number) => (
                   
-                        <AccordionDetails  key={lesson.id}  sx={{ mt: "" }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox /><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
+                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox /><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
                            
                             <Typography >  
                          {lesson.id} . {lesson.lessonTitle}

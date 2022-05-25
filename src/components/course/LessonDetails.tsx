@@ -1,6 +1,6 @@
 import { Button, FormControl, FormControlLabel, Radio, RadioGroup, Tab, Typography, Tabs } from "@mui/material";
 import { Box } from "@mui/system";
-import { MainCourse, Module, Option } from "components/types";
+import { MainCourse, Module, Option, Quiz } from "components/types";
 import CheckIcon from '@mui/icons-material/Check';
 import React, { useEffect } from 'react'
 import ReactPlayer from 'react-player/youtube'
@@ -22,7 +22,9 @@ const LessonDetails = ({ module }: Props) => {
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
   const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
   const [isCorrect, setIsCorrect] = React.useState<string>('');
+  const [userWrongAns, setUserWorngAns] = React.useState<Quiz>()
   const [value, setValue] = React.useState(0);
+  const [quizArray, setQuizArray] = React.useState<any>([])
 
   const handleChangee = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -31,13 +33,20 @@ const LessonDetails = ({ module }: Props) => {
   const handleChange = (id: Option) => {
     setIsDisabled(false);
     setAnswer(id)
+
   }
-  const handleOnClick = () => {
+  const handleCheckAnswer = () => {
     if (answer?.isCorrect) {
 
       setIsCorrect("Correct")
     }
     else {
+
+
+
+
+
+
       module?.quiz[currentQ].option.forEach((q: any) => {
 
         if (q.id == answer?.id) {
@@ -47,6 +56,13 @@ const LessonDetails = ({ module }: Props) => {
         }
 
       })
+      let arr: any = [...quizArray, module.quiz[currentQ]]
+      if (quizArray[currentQ]?.id == module.quiz[currentQ].id) {
+
+        return
+      }
+
+      setQuizArray(arr)
     }
   }
   const handleNext = () => {
@@ -65,16 +81,17 @@ const LessonDetails = ({ module }: Props) => {
       })
     })
   }, [currentQ, module?.quiz])
-  console.log(module?.quiz)
+
+  console.log(quizArray)
   return (
     <>
       {module?.content || module?.video ? <Box sx={{ height: '610px', overflowY: 'auto' }}>
 
 
-        {module?.video ? <Box sx={{width:"100%"}}>
+        {module?.video ? <Box sx={{ width: "100%" }}>
           <ReactPlayer controls={true} url={module.video} width='100%'
             height='600px' style={{ width: '100%' }} />
-        </Box> : <Box sx={{ px: {xs:1,md:'25'} }}>
+        </Box> : <Box sx={{ px: { xs: 1, md: '25' } }}>
           {module?.content && <div dangerouslySetInnerHTML={{ __html: module?.content }} />}
         </Box>}
 
@@ -116,7 +133,7 @@ const LessonDetails = ({ module }: Props) => {
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", mt: { xs: 2, md: 12 }, px: 2, py: "2px", border: '1px solid #999' }}>
                 <Typography>Question {currentQ + 1} of {module?.quiz?.length}</Typography>
                 <Box><Button onClick={handleNext} sx={{ color: '#333', borderRadius: '0', px: 4, mr: 2 }}>skip question</Button>
-                  <Button onClick={handleOnClick} disabled={isDisabled} sx={{
+                  <Button onClick={handleCheckAnswer} disabled={isDisabled} sx={{
                     background: "#333", color: '#fff', borderRadius: '0', px: 2, "&:hover": {
                       background: "#999",
                       color: '#fff'
@@ -131,7 +148,7 @@ const LessonDetails = ({ module }: Props) => {
         }
       </Box>
       <Box>
-        <Box sx={{  borderTop: '1px solid #999', width: '100%' ,px:3}}>
+        <Box sx={{ borderTop: '1px solid #999', width: '100%', px: 3 }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChangee} aria-label="basic tabs example" sx={{
               color: '#fff', "& .MuiTabs-indicator": {

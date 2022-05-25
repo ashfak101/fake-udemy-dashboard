@@ -6,7 +6,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://jsonkeeper.com/b/85I9')
+  const res = await fetch(' https://jsonkeeper.com/b/V861')
   const data = await res.json()
   return {
     props: {

@@ -63,9 +63,9 @@ const Index = () => {
    })
    setModule(singleModule)
    },[slug,url,singleModule])
-   const handleProgress = (p:number)=>{
+  //  const handleProgress = (p:number)=>{
 
-   }
+  //  }
  
 
   return (

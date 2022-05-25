@@ -27,6 +27,7 @@ export interface Quiz {
     question: string;
     option:   Option[];
     answer:   number;
+    module:string;
 }
 
 export interface Option {

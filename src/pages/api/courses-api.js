@@ -2,7 +2,7 @@ import axios from "axios"
 
 const handler= async(req, res)=>{
     try{
-        const {data}=await axios.get('https://jsonkeeper.com/b/85I9')
+        const {data}=await axios.get(' https://jsonkeeper.com/b/V861')
         res.send(data)
     }
     catch(err){

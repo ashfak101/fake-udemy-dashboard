@@ -75,7 +75,8 @@
                                     {"id":4,
                                         "text":"HTML, CSS, and Python","isCorrect":false}
                                 ],
-                                "answer":1
+                                "answer":1,
+                                "module":"Introduction to Amazon Web Design"
                             },{
                                 "id":2,
                                 "question":"Which of the following is not a valid HTML element?",
@@ -89,7 +90,8 @@
                                     {"id":4,
                                         "text":"<h1>","isCorrect":false}
                                 ],
-                                "answer":3
+                                "answer":3,
+                                "module":"Introduction to Amazon Web Design"
                             },{
                                 "id":3,
                                 "question":"Which of the following is not a valid CSS property?",
@@ -103,7 +105,8 @@
                                     {"id":4,
                                         "text":"font-style","isCorrect":false}
                                 ],
-                                "answer":2
+                                "answer":2,
+                                "module":"Using Colors Like A Pro"
                             },{
                                 "id":4,
                                 "question":"Which of the following is not a valid JavaScript variable name?",
@@ -117,7 +120,8 @@
                                     {"id":4,
                                         "text":"-name","isCorrect":false}
                                 ],
-                                "answer":3
+                                "answer":3,
+                                "module":"READ BEFORE YOU "
                             },{
                                 "id":5,
                                 "question":"Which of the following is not a valid JavaScript variable name?",
@@ -132,6 +136,8 @@
                                         "text":"-name","isCorrect":false}
                                 ],
                                 "answer":3
+                                ,
+                                "module":"Using Colors Like A Pro"
                             }
                         ],
                        
