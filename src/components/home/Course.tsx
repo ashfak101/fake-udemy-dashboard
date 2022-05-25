@@ -16,10 +16,10 @@ const Course = ({data}:Props) => {
                   <Box>
                   <Image src="/assets/images/cardimg.jpg" alt='' width='230px' height='129px'/>
                   </Box>
-                   <Box sx={{px:'10px',cursor:'pointer'}}>
+                   <Box sx={{px:'10px'}}>
                    <Typography sx={{color:'black',fontSize:'14px',fontWeight:'700'}}>Web Design for Web <br /> Developers Build Beautiful..</Typography>
-                 <Link href={`/courses/${courses.courseName}/learn/lesson1/${courses.id}`} passHref><Typography sx={{color:'black',fontSize:'14px',mt:'2px',fontWeight:'400'}}>Jonas Schmedtmann , Web Develper,Designer and Teacher</Typography></Link>
-                    <LinearProgress />
+                 <Link href={`/courses/${courses.courseName}/learn/lesson1/${courses.id}`} passHref><Typography sx={{color:'black',fontSize:'14px',mt:'2px',fontWeight:'400',cursor:'pointer'}}>Jonas Schmedtmann , Web Develper,Designer and Teacher</Typography></Link>
+                    <LinearProgress variant="determinate" value={10} />
                     <Typography sx={{color:'black',fontSize:'12px',mt:'2px',fontWeight:'300',textAlign:'right',pr:1}}>Leave a rating</Typography>
                     
                    </Box>

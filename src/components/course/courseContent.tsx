@@ -8,15 +8,30 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import SlowMotionVideoIcon from '@mui/icons-material/SlowMotionVideo';
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import React, { useEffect } from "react";
 interface Props {courses:MainCourse;
     // handleProgress: (e:any,progress:number)=>void
     // setLessonId: (lessonId: number) => void;
+    setProgress:(progress:number)=>void
 }
 
-const CourseContent = ({ courses }: Props) => {
-    const handleProgress=()=>{
-        console.log('progress')
+const CourseContent = ({ courses ,setProgress}: Props) => {
+  const [progressItem,setProgressItem]=React.useState<number>(0)
+  
+    const handleProgress=(event:any,id:number)=>{
+     
+        if(event.target.checked){
+          setProgressItem((prev:number)=>prev+1)
+        }
+        if(!event.target.checked){
+          setProgressItem((prev:number)=>prev-1)
+        }
+
     }
+    useEffect(()=>{
+      setProgress(progressItem)
+      
+    },[progressItem,setProgress])
     return (
         <Box>
             <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem',border:'1px solid #d1d7dc'}}>Course content</Typography>
@@ -36,7 +51,7 @@ const CourseContent = ({ courses }: Props) => {
                   {
                       content.module.map((lesson:Module, index:number) => (
                   
-                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox /><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
+                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox onChange={()=>handleProgress(event,lesson.id)}/><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
                            
                             <Typography >  
                          {lesson.id} . {lesson.lessonTitle}

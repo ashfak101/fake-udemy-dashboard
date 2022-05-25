@@ -17,3 +17,12 @@ a {
 * {
   box-sizing: border-box;
 }
+.MuiCircularProgress-svg{
+    color: #fff;
+    border: 1px solid #3b3b3b;
+    border-radius: 50%;
+    fill: aliceblue;
+}
+.MuiCircularProgress-circle{
+  border-color: #3b3b3b;
+}

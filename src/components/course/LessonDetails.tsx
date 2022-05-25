@@ -92,8 +92,7 @@ const LessonDetails = ({ module }: Props) => {
     setIsChecked(false)
     setIsCorrect('')
   }
-  console.log(quizArray)
-  console.log('right:', userRightAns)
+  
   return (
     <>
       {module?.content || module?.video ? <Box sx={{ height: '610px', overflowY: 'auto' }}>

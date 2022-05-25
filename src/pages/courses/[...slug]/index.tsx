@@ -19,7 +19,8 @@ const Index = () => {
   const [lessonId,setLessonID]=useState<string>();
   const [moduleId,setModuleId]=useState<string | number>()
   const [module,setModule]=useState<Module>()
-  const [progress,setProgress]=useState<number>()
+  const [progress,setProgress]=useState<number>(0)
+
   useEffect(()=>{
     fetch('/api/courses-api')
     .then(res=> res.json())
@@ -70,7 +71,7 @@ const Index = () => {
 
   return (
     <>
-    <CourseNav/>
+    <CourseNav progress={progress}/>
       <Box sx={{display:'flex',flexDirection:{
         xs:'column',md:'row'
       }}}>
@@ -81,7 +82,7 @@ const Index = () => {
           {
             courses?.map(course=>(
               <>
-                 <CourseContent key={course.id} courses={course}></CourseContent>
+                 <CourseContent key={course.id} courses={course} setProgress={setProgress}></CourseContent>
               </>
             ))
           }
