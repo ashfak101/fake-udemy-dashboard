@@ -5,20 +5,12 @@ import { MainCourse } from 'components/types'
 import { NextPage } from 'next'
 import Head from 'next/head'
 
-export const getStaticProps = async () => {
-  const res = await fetch(' https://jsonkeeper.com/b/V861')
-  const data = await res.json()
-  return {
-    props: {
-      data: data
-    }
-  }
-}
+
 
 
 
 const Home: NextPage<{data:MainCourse[]}> = ({data}) => {
-  console.log(data)
+ 
   return (
     <div >
       <Head>
@@ -35,3 +27,12 @@ const Home: NextPage<{data:MainCourse[]}> = ({data}) => {
 }
 
 export default Home
+export const getServerSideProps = async () => {
+  const res = await fetch('http://localhost:3000/assets/data.json')
+  const data = await res.json()
+  return {
+    props: {
+      data: data
+    }
+  }
+}

@@ -9,7 +9,7 @@ export interface CourseInterFace {
     id:       string;
     title:    string;
     module:   Module[];
-    length:   number;
+    length:   any;
     duration: string;
 }
 

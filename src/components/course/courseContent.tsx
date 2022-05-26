@@ -34,7 +34,7 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
     },[progressItem,setProgress])
     return (
         <Box>
-            <Typography sx={{fontWeight:'700',p:2,fontSize:'1.6rem',border:'1px solid #d1d7dc'}}>Course content</Typography>
+            <Typography sx={{fontWeight:'700',p:2,fontSize:'1.1rem',border:'1px solid #d1d7dc',fontFamily:'Poppins'}}>Course content</Typography>
             {courses.courseContent.map((content, index) => (
                 <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', cursor:'pointer'}}>
                     <AccordionSummary
@@ -44,7 +44,7 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
                        
                     >
                       <Box>
-                      <Typography sx={{color:'#333',fontWeight:'700'}}>Section {index + 1} :    {content.title}</Typography>
+                      <Typography sx={{color:'#333',fontWeight:'700',fontSize:'1rem',fontFamily:'Poppins'}}>Section {index + 1} :    {content.title}</Typography>
                         <Typography sx={{fontSize:'13px'}}> 0/{content.length} | {content.duration}min </Typography>
                       </Box>
                     </AccordionSummary>
@@ -53,7 +53,7 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
                   
                         <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox onChange={()=>handleProgress(event,lesson.id)}/><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
                            
-                            <Typography >  
+                            <Typography  sx={{fontFamily:'Popins'}}>  
                          {lesson.id} . {lesson.lessonTitle}
                         
                         </Typography>
