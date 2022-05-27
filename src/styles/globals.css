@@ -29,3 +29,17 @@ a {
 .MuiCheckbox-root .Mui-checked{
   color: #3b3b3b;
 }
+.MuiTooltip-tooltipPlacementTop{
+  color: #fff;
+  font-size: 12px;
+  background-color: #3b3b3b;
+  border-radius: 0;
+  padding: 8px 12px;
+  
+}
+.MuiFormControlLabel-label{
+   font-family: 'Poppins';
+   font-size: 14px;
+   font-weight: 700;
+   margin-left: 1px;
+}

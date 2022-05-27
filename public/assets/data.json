@@ -5,7 +5,7 @@
         "title":"Web Design for Web Developers: Build Beautiful Websites!",
         "courseName":"web-design-secrets",
         "courseContent":[
-            {   "id":"lesson1",
+            {   "id":"1",
                 "title":"Course Introduction",
                 
                 "module":[
@@ -34,7 +34,7 @@
                 "length":3,
                 "duration":"3"
             },
-            {   "id":"lesson2",
+            {   "id":"2",
                 "title":"The 25+ Guideline of Amazon Web Design",
                 
                 "module":[

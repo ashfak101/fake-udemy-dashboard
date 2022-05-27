@@ -51,7 +51,9 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
                   {
                       content.module.map((lesson:Module, index:number) => (
                   
-                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox onChange={()=>handleProgress(event,lesson.id)}/><Link href={`/courses/${courses.courseName}/learn/${content.id}/${lesson.id}`}>
+                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox onChange={()=>handleProgress(event,lesson.id)} sx={{ '&.Mui-checked': {
+                          color: "#333",
+                        },}}/><Link href={`/courses/${courses.courseName}/learn/lecture/${lesson.id}`}>
                            
                             <Typography  sx={{fontFamily:'Popins'}}>  
                          {lesson.id} . {lesson.lessonTitle}
@@ -60,7 +62,7 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
                           
                           </Link>  </Box>
                         {
-                            lesson.video ? <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><SlowMotionVideoIcon sx={{fontSize:'17px',mr:1}}/>   {lesson.duration}min</Box> : <Box sx={{display:'flex',fontSize:'14px',color:'#1c1d1f;',alignItems:'center',px:6}}><PostAddIcon sx={{fontSize:'17px',color:'#333',mr:1}}/>   {lesson.duration}min</Box>
+                            lesson.video ? <Box sx={{display:'flex',fontSize:'13px',color:'#6a6f73',alignItems:'center',px:6}}><SlowMotionVideoIcon sx={{fontSize:'17px',mr:1}}/>   {lesson.duration}min</Box> : <Box sx={{display:'flex',fontSize:'13px',color:'#6a6f73;',alignItems:'center',px:6}}><PostAddIcon sx={{fontSize:'17px',color:'#6a6f73',mr:1}}/>   {lesson.duration}min</Box>
                         }
                     </AccordionDetails>
                    

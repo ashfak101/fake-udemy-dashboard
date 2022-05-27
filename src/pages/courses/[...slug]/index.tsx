@@ -11,10 +11,9 @@ const Index = () => {
   const router = useRouter();
   const { slug }: any = router.query
   const [courses, setCourses] = useState<MainCourse[] | undefined>();
-  const [allCourse, setAllCourse] = useState<CourseInterFace[]>();
+  const [allCourse, setAllCourse] = useState<CourseInterFace[] | undefined>();
   const [url, setUrl] = useState<Array<string>>();
   const [courseName, setCourseName] = useState<string>()
-  const [lessonId, setLessonID] = useState<string>();
   const [moduleId, setModuleId] = useState<any>()
   const [module, setModule] = useState<Module>()
   const [progress, setProgress] = useState<number>(0)
@@ -43,49 +42,49 @@ const [ totallesson,setTotalLesson]=useState<number>(0)
 
   }, [courses, slug, courseName,allCourse])
 
-  const singleLesson = allCourse?.find(course => course.id === lessonId)
+  const singleLesson = allCourse?.find(courses=>courses.module.find(mod=> mod.id == moduleId))
 
   const singleModule = singleLesson?.module.find(module => module.id == moduleId)
-  console.log(singleLesson)
+
   useEffect(() => {
     setUrl(slug)
     url?.forEach((ele: string, index: number) => {
       if (index == 0) {
         setCourseName(ele)
       }
-      if (index === 2) {
-        setLessonID(ele)
-      }
+     
       if (index == 3) {
         setModuleId(ele)
       }
     })
     setModule(singleModule)
   }, [slug, url, singleModule])
-  //  const handleProgress = (p:number)=>{
-
-  //  }
+  
   const handleNext = () => {
-     if(moduleId < singleLesson?.length){
-      let id:number = parseInt(moduleId) + 1
-      router.push(`/courses/web-design-secrets/learn/${singleLesson?.id}/${id}`)
-     }
-      else if (moduleId <7 ){
-      let id:number = parseInt(moduleId) + 1
-      router.push(`/courses/web-design-secrets/learn/lesson2/${id}`)
-     }
-    
-    
+    let a =0
+    allCourse?.forEach(course =>{
+       a+= course.length
+    })
+    console.log(a);
+    if(moduleId <a ){
+      let id= parseInt(moduleId)+1
+      router.push(`/courses/web-design-secrets/learn/lecture/${id}`)
+    }
+      
   }
 const handleBack=()=>{
-  if(moduleId > 1 && moduleId <= 4){
+  let a =0
+  allCourse?.forEach(course =>{
+     a+= course.length
+  })
+  if(moduleId > 1 && moduleId <= a){
     let id:number = parseInt(moduleId) - 1
-    router.push(`/courses/web-design-secrets/learn/lesson1/${id}`)
+    router.push(`/courses/web-design-secrets/learn/lecture/${id}`)
    }
-    else if (moduleId >4 ){
-    let id:number = parseInt(moduleId) - 1
-    router.push(`/courses/web-design-secrets/learn/lesson2/${id}`)
-   }
+  //   else if (moduleId >4 ){
+  //   let id:number = parseInt(moduleId) - 1
+  //   router.push(`/courses/web-design-secrets/learn/lesson2/${id}`)
+  //  }
 }
   return (
     <>
