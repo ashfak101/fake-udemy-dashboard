@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Tooltip } from '@mui/material';
+import { Box, Button, Grid, IconButton, Tooltip } from '@mui/material';
 import CourseContent from 'components/course/courseContent';
 import LessonDetails from 'components/course/LessonDetails';
 import CourseNav from 'components/shared/CourseNav';
@@ -18,8 +18,8 @@ const Index = () => {
   const [module, setModule] = useState<Module>()
   const [progress, setProgress] = useState<number>(0)
   const [totallesson, setTotalLesson] = useState<number>(0)
-  const[rightMouseData,setRightMouseData]=useState<Module>()
-  const [leftMouseData,setLeftMouseData]=useState<Module>()
+  const [rightMouseData, setRightMouseData] = useState<Module>()
+  const [leftMouseData, setLeftMouseData] = useState<Module>()
 
   useEffect(() => {
     fetch('/api/courses-api')
@@ -86,22 +86,25 @@ const Index = () => {
     }
 
   }
-  const handleNextLesson =()=>{
+  const handleNextLesson = () => {
 
     let a = 0
     allCourse?.forEach(course => {
       a += course.length
     })
-    if (moduleId < a){
-      let id:number= parseInt(moduleId) + 1;
+    if (moduleId < a) {
+      let id: number = parseInt(moduleId) + 1;
       console.log(id);
       const singleLesson = allCourse?.find(courses => courses.module.find(mod => mod.id == id))
-    const singleModule = singleLesson?.module.find(module => module.id == id)
-    setRightMouseData(singleModule)
+      const singleModule = singleLesson?.module.find(module => module.id == id)
+      setRightMouseData(singleModule)
     }
-    
+    else {
+      setRightMouseData(singleModule)
+    }
+
   }
-  const handlePrevLesson=()=>{
+  const handlePrevLesson = () => {
     let a = 0
     allCourse?.forEach(course => {
       a += course.length
@@ -112,46 +115,72 @@ const Index = () => {
       const singleModule = singleLesson?.module.find(module => module.id == num)
       setLeftMouseData(singleModule)
     }
-    
+    else {
+      setLeftMouseData(singleModule)
+    }
   }
   console.log(singleModule)
   return (
     <>
       <CourseNav progress={progress} totallesson={totallesson} />
       <Box sx={{
-        display: 'flex', flexDirection: {
-          xs: 'column', md: 'row'
-        }
+        // display: 'flex', flexDirection: {
+        //   xs: 'column', md: 'row'
+        // }
       }}>
-        <Box sx={{ width: { xs: '100%', md: '70%', position: 'relative' } }}>
-          <LessonDetails module={module}></LessonDetails>
-          {/* rightMouseData */}
-          <Box  onMouseOver={handleNextLesson} sx={{ position: 'absolute', left: { xs: "94%", md: '873px', lg: "1317px" }, top: "40%", }}>
-            <Tooltip  title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left">
-              <IconButton sx={{ background: "#333", borderRadius: '0', p: '10px 0', color: '#fff','&:hover': { background: '#999',color:'#fff' }  }} onClick={handleNext}>
-                <ArrowForwardIosIcon />
-              </IconButton>
-            </Tooltip>
-          </Box>
-          {/* leftMouseData */}
-          <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "40%" }}>
-            <Tooltip title={`${leftMouseData?.id}.${leftMouseData?.lessonTitle}`} placement="right">
-              <IconButton sx={{ background: "#333", borderRadius: '0',  p: '10px 0', color: '#fff','&:hover': { background: '#999',color:'#fff' } }} onClick={handleBack}>
-                <ArrowBackIosNewIcon />
-              </IconButton>
-            </Tooltip>
+        <Grid container>
+          <Grid  xs={12} md={9}>
+            <Box sx={{  position: 'relative' }}>
+              <LessonDetails module={module}></LessonDetails>
+              {/* rightMouseData */}
+              <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "40%", }}>
+                <Tooltip title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left" componentsProps={{
+                  tooltip: {
+                    sx: {
+                      color: "#fff",
+                      backgroundColor: " #3b3b3b",
+                      fontSize: "12px",
+                      borderRadius: '0',
+                      p: '12px 12px'
+                    }
+                  }
+                }}>
+                  <IconButton sx={{ background: "#333", borderRadius: '0', p: '10px 0', color: '#fff', '&:hover': { background: '#999', color: '#fff' } }} onClick={handleNext}>
+                    <ArrowForwardIosIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              {/* leftMouseData */}
+              <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "40%" }}>
+                <Tooltip title={`${leftMouseData?.id}.${leftMouseData?.lessonTitle}`} placement="right" componentsProps={{
+                  tooltip: {
+                    sx: {
+                      color: "#fff",
+                      backgroundColor: " #3b3b3b",
+                      fontSize: "12px",
+                      borderRadius: '0',
+                      p: '12px 12px'
+                    }
+                  }
+                }}>
+                  <IconButton sx={{ background: "#333", borderRadius: '0', p: '10px 0', color: '#fff', '&:hover': { background: '#999', color: '#fff' } }} onClick={handleBack}>
+                    <ArrowBackIosNewIcon />
+                  </IconButton>
+                </Tooltip>
 
-          </Box>
-        </Box>
-        <Box sx={{ width: { xs: '100%', md: '30%' }, background: '#f2f7f6' }}>
-          {
-            courses?.map(course => (
-              <>
-                <CourseContent key={course.id} courses={course} setProgress={setProgress}></CourseContent>
-              </>
-            ))
-          }
-        </Box>
+              </Box>
+            </Box></Grid>
+          <Grid  xs={12} md={3}>
+            <Box sx={{  background: '#f2f7f6' }}>
+              {
+                courses?.map(course => (
+                  <>
+                    <CourseContent key={course.id} courses={course} setProgress={setProgress}></CourseContent>
+                  </>
+                ))
+              }
+            </Box></Grid>
+        </Grid>
       </Box>
 
     </>

@@ -14,7 +14,7 @@ const Course = ({data}:Props) => {
             <Box sx={{width:'230px',height:'229px'}}>
           { data.map(courses => <Paper key={courses.id} elevation={3}>
                   <Box>
-                  <Image src="/assets/images/cardimg.jpg" alt='' width='230px' height='129px'/>
+                  <Image src="/assets/images/card.png" alt='' width='230px' height='129px'/>
                   </Box>
                    <Box sx={{px:'10px'}}>
                    <Typography sx={{color:'black',fontSize:'14px',fontWeight:'700'}}>Web Design for Web <br /> Developers Build Beautiful..</Typography>
