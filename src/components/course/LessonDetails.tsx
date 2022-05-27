@@ -1,5 +1,5 @@
-import { Button, FormControl, FormControlLabel, Radio, RadioGroup, Tab, Typography, Tabs, IconButton, Tooltip } from "@mui/material";
-import { Box } from "@mui/system";
+import { Button,Box, FormControl, FormControlLabel, Radio, RadioGroup, Tab, Typography, Tabs, IconButton, Tooltip } from "@mui/material";
+
 import { MainCourse, Module, Option, Quiz } from "components/types";
 import CheckIcon from '@mui/icons-material/Check';
 import React, { useEffect } from 'react'
@@ -97,7 +97,7 @@ const LessonDetails = ({ module }: Props) => {
   }
 
   return (
-    <><Box sx={{ height: '60vh' }}>
+    <><Box sx={{ height: {xs:"100vh",md:'60vh'} }}>
       {module?.content || module?.video ? <Box sx={{ height: '610px', }}>
 
 
@@ -105,7 +105,7 @@ const LessonDetails = ({ module }: Props) => {
           <ReactPlayer controls={true} url={module.video} width='100%'
             height='700px' style={{ width: '100%' }} />
         </Box> : <Box sx={{ px: { xs: 1, md: '25' } }}>
-          {module?.content && <div dangerouslySetInnerHTML={{ __html: module?.content }} />}
+          {module?.content && <Box sx={{width:{xs:'100%',md:'600px'},m:'0 auto', '& h2':{fontSize:'30px',fontFamily:'Popins',fontWeight:'900'},'& p':{color:'#555',fontWeight:'400'},'& a':{color:'#5624d1'}}} dangerouslySetInnerHTML={{ __html: module?.content }} />}
         </Box>}
 
       </Box> : ''}

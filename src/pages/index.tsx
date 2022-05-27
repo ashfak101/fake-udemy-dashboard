@@ -28,7 +28,7 @@ const Home: NextPage<{data:MainCourse[]}> = ({data}) => {
 
 export default Home
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:3000/assets/data.json')
+  const res = await fetch('https://jsonkeeper.com/b/WWJT')
   const data = await res.json()
   return {
     props: {
@@ -36,3 +36,5 @@ export const getServerSideProps = async () => {
     }
   }
 }
+// https://jsonkeeper.com/b/WWJT
+// http://localhost:3000/assets/data.json

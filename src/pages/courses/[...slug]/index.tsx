@@ -126,9 +126,9 @@ const Index = () => {
         <Box sx={{ width: { xs: '100%', md: '70%', position: 'relative' } }}>
           <LessonDetails module={module}></LessonDetails>
           {/* rightMouseData */}
-          <Box  onMouseOver={handleNextLesson} sx={{ position: 'absolute', left: { xs: "94%", md: '873px', lg: "1318px" }, top: "40%", }}>
+          <Box  onMouseOver={handleNextLesson} sx={{ position: 'absolute', left: { xs: "94%", md: '873px', lg: "1317px" }, top: "40%", }}>
             <Tooltip  title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left">
-              <IconButton sx={{ background: "#333", borderRadius: '0', px: '0', color: '#fff','&:hover': { background: '#999',color:'#fff' }  }} onClick={handleNext}>
+              <IconButton sx={{ background: "#333", borderRadius: '0', p: '10px 0', color: '#fff','&:hover': { background: '#999',color:'#fff' }  }} onClick={handleNext}>
                 <ArrowForwardIosIcon />
               </IconButton>
             </Tooltip>
@@ -136,7 +136,7 @@ const Index = () => {
           {/* leftMouseData */}
           <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "40%" }}>
             <Tooltip title={`${leftMouseData?.id}.${leftMouseData?.lessonTitle}`} placement="right">
-              <IconButton sx={{ background: "#333", borderRadius: '0', px: '0', color: '#fff','&:hover': { background: '#999',color:'#fff' } }} onClick={handleBack}>
+              <IconButton sx={{ background: "#333", borderRadius: '0',  p: '10px 0', color: '#fff','&:hover': { background: '#999',color:'#fff' } }} onClick={handleBack}>
                 <ArrowBackIosNewIcon />
               </IconButton>
             </Tooltip>
