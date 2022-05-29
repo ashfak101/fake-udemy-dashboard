@@ -28,13 +28,19 @@ const Home: NextPage<{data:MainCourse[]}> = ({data}) => {
 
 export default Home
 export const getServerSideProps = async () => {
-  const res = await fetch('https://jsonkeeper.com/b/WWJT')
+ try{
+  const res = await fetch('https://fake-udemy-dashboard.vercel.app/assets/data.json')
   const data = await res.json()
   return {
     props: {
       data: data
     }
   }
+ }
+ catch(err){
+   console.log('error',err)
+ }
 }
 // https://jsonkeeper.com/b/WWJT
 // http://localhost:3000/assets/data.json
+// https://fake-udemy-dashboard.vercel.app/assets/data.json'
