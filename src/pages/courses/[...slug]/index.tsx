@@ -4,7 +4,7 @@ import LessonDetails from 'components/course/LessonDetails';
 import CourseNav from 'components/shared/CourseNav';
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import { CourseInterFace, MainCourse, Module } from '../../../components/types'
+import { CourseInterFace, handleLocalStorage, MainCourse, Module } from '../../../components/types'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 const Index = () => {
@@ -20,6 +20,7 @@ const Index = () => {
   const [totallesson, setTotalLesson] = useState<number>(0)
   const [rightMouseData, setRightMouseData] = useState<Module>()
   const [leftMouseData, setLeftMouseData] = useState<Module>()
+  const [lesson,setLesson]=useState<CourseInterFace>()
 
   useEffect(() => {
     fetch('/api/courses-api')
@@ -61,7 +62,9 @@ const Index = () => {
       }
     })
     setModule(singleModule)
-  }, [slug, url, singleModule])
+    setLesson(singleLesson)
+    handleLocalStorage('id',moduleId)
+  }, [slug, url, singleModule,singleLesson,moduleId])
 
   const handleNext = () => {
     let a = 0
@@ -131,7 +134,7 @@ const Index = () => {
         <Grid container>
           <Grid  xs={12} md={9}>
             <Box sx={{  position: 'relative' }}>
-              <LessonDetails module={module}></LessonDetails>
+              <LessonDetails module={module} lesson={lesson}></LessonDetails>
               {/* rightMouseData */}
               <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "40%", }}>
                 <Tooltip title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left" componentsProps={{
@@ -170,7 +173,7 @@ const Index = () => {
 
               </Box>
             </Box></Grid>
-          <Grid  xs={12} md={3}>
+          <Grid  xs={12} md={3}  sx={{borderLeft:'1px solid #bfbfbf',height:'100vh'}}>
             <Box sx={{  background: '#f2f7f6' }}>
               {
                 courses?.map(course => (

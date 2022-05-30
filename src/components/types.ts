@@ -1,3 +1,5 @@
+
+
 export interface MainCourse {
     id:            number;
     title:         string;
@@ -35,4 +37,9 @@ export interface Option {
     text:      string;
     isCorrect: boolean;
     isChecked?: boolean;
+}
+
+
+export const handleLocalStorage =(name:string,value:string)=>{
+    localStorage.setItem(name,value)
 }

@@ -3,6 +3,7 @@ import ReplyIcon from '@mui/icons-material/Reply';
 import StarIcon from '@mui/icons-material/Star';
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { handleLocalStorage } from "components/types";
 interface Props{
   progress:number
   totallesson:number
@@ -13,7 +14,8 @@ const CourseNav = ({progress,totallesson}:Props) => {
       let pro =(100/totallesson)
       const result = progress * pro
       setValue(result)
-  },[progress,totallesson])
+     
+  },[progress,totallesson,value])
   return (
     <Box sx={{ height: { xs:'10vh',md:'6vh'},borderBottom:'1px dotted #3e4143',display:'flex',justifyContent:'space-between',alignItems:'center',background:'#1c1d1f',color:'#fff',flexDirection:{
       xs:'column',md:'row'

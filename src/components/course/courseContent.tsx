@@ -33,7 +33,7 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
       
     },[progressItem,setProgress])
     return (
-        <Box>
+        <Box sx={{borderLeft:'1px solid #999'}}>
             <Typography sx={{fontWeight:'700',p:2,fontSize:'1.1rem',border:'1px solid #d1d7dc',fontFamily:'Poppins'}}>Course content</Typography>
             {courses.courseContent.map((content, index) => (
                 <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', cursor:'pointer'}}>

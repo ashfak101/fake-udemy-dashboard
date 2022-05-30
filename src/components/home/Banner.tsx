@@ -53,7 +53,7 @@ const Banner = () => {
                             <Tab label="All courses" {...a11yProps(0)} />
                             <Tab label="My Lists" {...a11yProps(1)} />
                             <Tab label="Wishlist" {...a11yProps(2)} />
-                            <Tab label="Archived" {...a11yProps(4)} />
+                           
                         </Tabs>
                     </Box>
 
