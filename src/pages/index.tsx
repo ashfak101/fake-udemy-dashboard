@@ -29,7 +29,7 @@ const Home: NextPage<{data:MainCourse[]}> = ({data}) => {
 export default Home
 export const getServerSideProps = async () => {
  try{
-  const res = await fetch('http://localhost:3000/assets/data.json')
+  const res = await fetch('https://fake-udemy-dashboard.vercel.app/assets/data.json')
   const data = await res.json()
   return {
     props: {
