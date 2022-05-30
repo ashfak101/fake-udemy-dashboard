@@ -21,7 +21,7 @@ const CourseNav = ({progress,totallesson}:Props) => {
       xs:'column',md:'row'
     } }}>
       <Box sx={{display:'flex',alignItems:'center',}}> <Link href='/'>
-      <Typography variant="h3" sx={{ display: { xs:'none', md: 'block', lg: 'block' }, color: '#fff', fontSize: '35px', fontWeight: '600', fontFamily: 'Poppins sans-serif', letterSpacing: '1px',pr:2, }}>udemy<Box sx={{ display: 'inline', position: 'absolute', left: '0px', top: '0px', fontWeight: 'bold', color: '#a435f0' }}>^</Box></Typography>
+      <Typography variant="h3" sx={{ display: { xs:'none', md: 'block', lg: 'block' }, color: '#fff', fontSize: '35px', fontWeight: '600', fontFamily: 'Poppins sans-serif', letterSpacing: '1px',pr:2,cursor:'pointer' }}>udemy<Box sx={{ display: 'inline', position: 'absolute', left: '0px', top: '0px', fontWeight: 'bold', color: '#a435f0' }}>^</Box></Typography>
       </Link>
         <Typography variant="h5" sx={{
           display: {  lg: 'block' },borderLeft:'0.5px solid #fff',pl:3,

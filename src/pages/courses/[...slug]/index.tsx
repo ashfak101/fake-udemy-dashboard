@@ -20,7 +20,7 @@ const Index = () => {
   const [totallesson, setTotalLesson] = useState<number>(0)
   const [rightMouseData, setRightMouseData] = useState<Module>()
   const [leftMouseData, setLeftMouseData] = useState<Module>()
-  const [lesson,setLesson]=useState<CourseInterFace>()
+  const [lesson, setLesson] = useState<CourseInterFace>()
 
   useEffect(() => {
     fetch('/api/courses-api')
@@ -63,15 +63,15 @@ const Index = () => {
     })
     setModule(singleModule)
     setLesson(singleLesson)
-    handleLocalStorage('id',moduleId)
-  }, [slug, url, singleModule,singleLesson,moduleId])
+    handleLocalStorage('id', moduleId)
+  }, [slug, url, singleModule, singleLesson, moduleId])
 
   const handleNext = () => {
     let a = 0
     allCourse?.forEach(course => {
       a += course.length
     })
-    console.log(a);
+
     if (moduleId < a) {
       let id = parseInt(moduleId) + 1
       router.push(`/courses/web-design-secrets/learn/lecture/${id}`)
@@ -122,7 +122,7 @@ const Index = () => {
       setLeftMouseData(singleModule)
     }
   }
-  console.log(singleModule)
+
   return (
     <>
       <CourseNav progress={progress} totallesson={totallesson} />
@@ -132,11 +132,11 @@ const Index = () => {
         // }
       }}>
         <Grid container>
-          <Grid  xs={12} md={9}>
-            <Box sx={{  position: 'relative' }}>
+          <Grid xs={12} md={9}>
+            <Box sx={{ position: 'relative' }}>
               <LessonDetails module={module} lesson={lesson}></LessonDetails>
               {/* rightMouseData */}
-              <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "40%", }}>
+              <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "30%", }}>
                 <Tooltip title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left" componentsProps={{
                   tooltip: {
                     sx: {
@@ -154,7 +154,7 @@ const Index = () => {
                 </Tooltip>
               </Box>
               {/* leftMouseData */}
-              <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "40%" }}>
+              <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "30%" }}>
                 <Tooltip title={`${leftMouseData?.id}.${leftMouseData?.lessonTitle}`} placement="right" componentsProps={{
                   tooltip: {
                     sx: {
@@ -173,8 +173,8 @@ const Index = () => {
 
               </Box>
             </Box></Grid>
-          <Grid  xs={12} md={3}  sx={{borderLeft:'1px solid #bfbfbf',height:'100vh'}}>
-            <Box sx={{  background: '#f2f7f6' }}>
+          <Grid xs={12} md={3} sx={{ borderLeft: '1px solid #bfbfbf', height: '100vh' }}>
+            <Box sx={{ background: '#f2f7f6' }}>
               {
                 courses?.map(course => (
                   <>
@@ -185,9 +185,9 @@ const Index = () => {
             </Box></Grid>
         </Grid>
       </Box>
-        <Box>
-          
-        </Box>
+      <Box>
+
+      </Box>
     </>
   )
 }

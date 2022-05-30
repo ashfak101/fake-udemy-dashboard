@@ -17,6 +17,11 @@ interface Props {courses:MainCourse;
 
 const CourseContent = ({ courses ,setProgress}: Props) => {
   const [progressItem,setProgressItem]=React.useState<number>(0)
+  const router= useRouter()
+  const { slug }: any = router.query
+  const [url, setUrl] = React.useState<Array<string>>();
+  const [moduleId, setModuleId] = React.useState<any>()
+ 
   
     const handleProgress=(event:any,id:number)=>{
      
@@ -29,9 +34,15 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
 
     }
     useEffect(()=>{
+      setUrl(slug)
       setProgress(progressItem)
-      
-    },[progressItem,setProgress])
+      url?.forEach((ele: string, index: number) => {
+       
+        if (index == 3) {
+          setModuleId(ele)
+        }
+      })
+    },[progressItem,setProgress,slug,url])
     return (
         <Box sx={{borderLeft:'1px solid #999'}}>
             <Typography sx={{fontWeight:'700',p:2,fontSize:'1.1rem',border:'1px solid #d1d7dc',fontFamily:'Poppins'}}>Course content</Typography>
@@ -51,7 +62,7 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
                   {
                       content.module.map((lesson:Module, index:number) => (
                   
-                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'} }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox onChange={()=>handleProgress(event,lesson.id)} sx={{ '&.Mui-checked': {
+                        <AccordionDetails  key={lesson.id}  sx={{ mt: "","&:hover":{background:'#d1d7dc'},background:moduleId == lesson.id ? '#d1d7dc':'' }}>   <Box sx={{display:'flex',alignItems:'center'}}> <Checkbox onChange={()=>handleProgress(event,lesson.id)} sx={{ '&.Mui-checked': {
                           color: "#333",
                         },}}/><Link href={`/courses/${courses.courseName}/learn/lecture/${lesson.id}`}>
                            
@@ -60,10 +71,10 @@ const CourseContent = ({ courses ,setProgress}: Props) => {
                         
                         </Typography>
                           
-                          </Link>  </Box>
+                          </Link>  </Box><Link href={`/courses/${courses.courseName}/learn/lecture/${lesson.id}`}>
                         {
                             lesson.video ? <Box sx={{display:'flex',fontSize:'13px',color:'#6a6f73',alignItems:'center',px:6}}><SlowMotionVideoIcon sx={{fontSize:'17px',mr:1}}/>   {lesson.duration}min</Box> : <Box sx={{display:'flex',fontSize:'13px',color:'#6a6f73;',alignItems:'center',px:6}}><PostAddIcon sx={{fontSize:'17px',color:'#6a6f73',mr:1}}/>   {lesson.duration}min</Box>
-                        }
+                        }</Link>
                     </AccordionDetails>
                    
                       ))

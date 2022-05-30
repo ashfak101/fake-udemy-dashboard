@@ -66,7 +66,7 @@ const Notes = ({module,lesson}:Props) => {
                xs:'100%',md:'780px'
            }, mt: 2 }}>
                 <CssTextField
-                    
+                    placeholder="Type Here"
                     sx={{ borderColor: '#999', width: {
                         xs:'100%',md:'780px'
                     }, }}

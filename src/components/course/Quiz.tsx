@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Quiz = ({quiz}:Props) => {
-    console.log(quiz)
+  
   return (
    <>
         <Box>
