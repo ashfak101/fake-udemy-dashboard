@@ -100,7 +100,7 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
 
   return (
     <><Box >
-      {module?.content || module?.video ? <Box sx={{ height: '610px',my:10 }}>
+      {module?.content || module?.video ? <Box sx={{ height: '610px', }}>
 
 
         {module?.video ? <Box sx={{ width: "100%" }}>
@@ -185,6 +185,7 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
               </Box>
             </Box>}
             {
+              // quiz Result section
               showResult && <QuizResult quizArray={quizArray} setGridCount={setGridCount} gridCount={gridCount} handleRetry={handleRetry} userRightAns={userRightAns}/>
               // showResult && <Box>
 
