@@ -29,7 +29,7 @@ const Course = ({data}:Props) => {
                   </Box>
                    <Box sx={{px:'10px'}}>
                    <Typography sx={{color:'black',fontSize:'14px',fontWeight:'700'}}>Web Design for Web <br /> Developers Build Beautiful..</Typography>
-                 <Link href={`/courses/${courses.courseName}/learn/lecture/${courseID ? courseID : 1}`} passHref><Typography sx={{color:'black',fontSize:'14px',mt:'2px',fontWeight:'400',cursor:'pointer'}}>Jonas Schmedtmann , Web Develper,Designer and Teacher</Typography></Link>
+                 <Link href={`/courses/${courses.courseName}/learn/lecture/${courseID ? courseID : 1}`} passHref><Typography sx={{color:'black',fontSize:'14px',mt:'2px',fontWeight:'400',cursor:'pointer','&:hover':{color:'#5624d0'}}}>Jonas Schmedtmann , Web Develper,Designer and Teacher</Typography></Link>
                     <LinearProgress variant="determinate" value={10} />
                     <Typography sx={{color:'black',fontSize:'12px',mt:'2px',fontWeight:'300',textAlign:'right',pr:1}}>Leave a rating</Typography>
                     
