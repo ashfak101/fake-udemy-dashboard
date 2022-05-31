@@ -108,9 +108,15 @@ const LessonDetails = ({ module,lesson,setGridCount }: Props) => {
             playing={true}
             controls={true} url={module.video} width='100%'
             height='600px' style={{ width: '100%' }} />
-        </Box> : <Box sx={{ px: { xs: 1, md: '25' } }}>
+        </Box> :<> <Box sx={{ px: { xs: 1, md: '25' } }}>
           {module?.content && <Box sx={{ width: { xs: '100%', md: '600px' }, m: '0 auto', '& h2': { fontSize: '30px', fontFamily: 'Popins', fontWeight: '900' }, '& p': { color: '#555', fontWeight: '400' }, '& a': { color: '#5624d1' } }} dangerouslySetInnerHTML={{ __html: module?.content }} />}
-        </Box>}
+        </Box>
+        <Box sx={{ border: '1px solid #333', display: 'flex', flexDirection: 'row-reverse', py: 1 }}>
+
+          <Icons setGridCount={setGridCount}/>
+
+        </Box>
+        </>}
 
       </Box> : ''}
       <Box>
@@ -225,11 +231,7 @@ const LessonDetails = ({ module,lesson,setGridCount }: Props) => {
       </Box>
 
       <Box>
-        <Box sx={{ border: '1px solid #333', display: 'flex', flexDirection: 'row-reverse', py: 1 }}>
-
-          <Icons setGridCount={setGridCount}/>
-
-        </Box>
+        
         <CourseDetails module={module} lesson={lesson}/>
       </Box>
     </Box>

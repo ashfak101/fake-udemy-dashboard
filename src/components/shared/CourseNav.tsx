@@ -9,11 +9,17 @@ interface Props{
   totallesson:number
 }
 const CourseNav = ({progress,totallesson}:Props) => {
-  const [value,setValue]=useState<number>(0)
+  const [value,setValue]=useState<any>(0)
   useEffect(()=>{
       let pro =(100/totallesson)
-      const result = progress * pro
-      setValue(result)
+      const result:any = progress * pro
+      handleLocalStorage('progress',result)
+      if (typeof window !== 'undefined') {
+        // Perform localStorage action
+        const id=localStorage.getItem('progress')
+    
+        setValue(id)
+      }
      
   },[progress,totallesson,value])
   return (
