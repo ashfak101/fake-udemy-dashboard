@@ -13,7 +13,8 @@ import Vimeo from '@u-wave/react-vimeo';
 interface Props {
   module: any;
   lesson:CourseInterFace | undefined
-  setGridCount: (gridCount:number)=>void
+  setGridCount: (gridCount:boolean)=>void
+  gridCount:boolean
 }
 function a11yProps(index: number) {
   return {
@@ -21,7 +22,7 @@ function a11yProps(index: number) {
     'aria-controls': `simple-tabpanel-${index}`,
   };
 }
-const LessonDetails = ({ module,lesson,setGridCount }: Props) => {
+const LessonDetails = ({ module,lesson,setGridCount,gridCount }: Props) => {
   const [answer, setAnswer] = React.useState<Option>()
   const [currentQ, setCurrentQ] = React.useState<number>(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
@@ -113,7 +114,7 @@ const LessonDetails = ({ module,lesson,setGridCount }: Props) => {
         </Box>
         <Box sx={{ border: '1px solid #333', display: 'flex', flexDirection: 'row-reverse', py: 1 }}>
 
-          <Icons setGridCount={setGridCount}/>
+          <Icons setGridCount={setGridCount} gridCount={gridCount}/>
 
         </Box>
         </>}
@@ -179,7 +180,7 @@ const LessonDetails = ({ module,lesson,setGridCount }: Props) => {
                 }
                   <>
                     <Box sx={{ ml: { xs: 0, md: 4 } }}>
-                      <Icons setGridCount={setGridCount}/>
+                      <Icons setGridCount={setGridCount} gridCount={gridCount}/>
                     </Box>
                   </>
                 </Box>
@@ -214,7 +215,7 @@ const LessonDetails = ({ module,lesson,setGridCount }: Props) => {
                     </Box></Box>
                   <Box sx={{ border: '1px solid #333', display: 'flex', flexDirection: 'row-reverse', py: 1 }}>
 
-                    <Icons setGridCount={setGridCount}/>
+                    <Icons setGridCount={setGridCount} gridCount={gridCount}/>
                     <Button sx={{
                       background: "#333", color: '#fff', borderRadius: '0', px: 2, "&:hover": {
                         background: "#999",

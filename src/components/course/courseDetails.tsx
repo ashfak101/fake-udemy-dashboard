@@ -55,15 +55,11 @@ const CourseDetails = ({module,lesson}:Props) => {
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{
                     color: '#333', "& .MuiTabs-indicator": {
                         backgroundColor: "#fff",
-                        border: '2px solid #999'
+                        border: '1px solid #333'
 
                     },
-                    "& .MuiTab-textColorPrimary ": {
-                        color: "#777"
-                    },
-                    "& .MuiTab-textColorPrimary": {
-                        color: "#777"
-                    },
+                    
+                   
                     "& .MuiTab-root": {
                        
                         fontSize:'20px',
@@ -71,7 +67,7 @@ const CourseDetails = ({module,lesson}:Props) => {
                         mr: 1,
                         color: '#777',
                         textTransform: 'capitalize',
-                        letterSpacing: '1px',
+                        letterSpacing: '0px',
                         fontFamily: 'Popins', fontWeight: '700'
                     },
                     "& .Mui-selected": {

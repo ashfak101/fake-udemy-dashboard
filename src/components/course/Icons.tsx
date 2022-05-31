@@ -4,9 +4,16 @@ import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import React from 'react'
 interface Props{
-  setGridCount:any
+  setGridCount:(gridCount:boolean)=>void
+  gridCount:boolean
 }
-const Icons = ({setGridCount}:Props) => {
+const Icons = ({setGridCount,gridCount}:Props) => {
+  const handleOnClick =()=>{
+    !gridCount ?
+      setGridCount(true): setGridCount(false)
+ 
+    
+  }
     return (
         <>
             <Tooltip 
@@ -53,7 +60,7 @@ const Icons = ({setGridCount}:Props) => {
                 }
               }}>
                 <IconButton sx={{ '&:hover': { background: 'none' }, ml: {xs:0,md:1}, color: '#333' }}>
-                    <SyncAltIcon onClick={()=>setGridCount(12)} />
+                    <SyncAltIcon  onClick={handleOnClick} />
                 </IconButton>
             </Tooltip>
 

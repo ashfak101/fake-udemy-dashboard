@@ -36,7 +36,7 @@ const Banner = () => {
                                 backgroundColor: "#fff",
                                 border:'3px solid #fff'
                             },
-                            "& .MuiTab-textColorPrimary .Mui-selected":{
+                            "& .Mui-selected":{
                                 color:"#fff"
                             },
                             "& .MuiTab-textColorPrimary":{
@@ -45,9 +45,10 @@ const Banner = () => {
                             "& .MuiTab-root":{
                                 p:0,
                                 mr:1,
+                                fontSize:'16px',
                                 textTransform:'capitalize',
-                                letterSpacing:'1px',
-                                fontFamily:'Georgia',fontWeight:'500'
+                                letterSpacing:'0px',
+                                fontFamily:'Popins',fontWeight:'700'
                             }
                         }}>
                             <Tab label="All courses" {...a11yProps(0)} />

@@ -26,7 +26,7 @@ const Course = ({data}:Props) => {
     <Box>
         <Container maxWidth='md'sx={{mt:10}}>
             <Box sx={{width:'230px',height:'229px'}}>
-          { data.map(courses => <Paper key={courses.id} elevation={3}>
+          { data.map(courses =>  <Link key={courses.id}  href={`/courses/${courses.courseName}/learn/lecture/${courseID ? courseID : 1}`} passHref><Paper sx={{cursor:'pointer'}} elevation={3}>
                   <Box>
                   <Image src="/assets/images/card.png" alt='' width='230px' height='129px'/>
                   </Box>
@@ -39,8 +39,8 @@ const Course = ({data}:Props) => {
                     </Box>
                     <Typography sx={{color:'black',fontSize:'12px',mt:'2px',fontWeight:'300',textAlign:'right',pr:1}}>Leave a rating</Typography>
                     
-                   </Box>
-             </Paper>)}
+                   </Box></Paper></Link>
+             )}
             </Box>
         </Container>
     </Box>

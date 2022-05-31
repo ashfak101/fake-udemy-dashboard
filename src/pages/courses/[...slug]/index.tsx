@@ -22,8 +22,8 @@ const Index = () => {
   const [rightMouseData, setRightMouseData] = useState<Module>()
   const [leftMouseData, setLeftMouseData] = useState<Module>()
   const [lesson, setLesson] = useState<CourseInterFace>()
-  const [gridCount,setGridCount]=useState<number>(9)
-  
+  const [gridCount, setGridCount] = useState<boolean>(false)
+
   useEffect(() => {
     fetch('/api/courses-api')
       .then(res => res.json())
@@ -124,9 +124,11 @@ const Index = () => {
       setLeftMouseData(singleModule)
     }
   }
-const handleGridCount=()=>{
-  setGridCount(9)
-}
+  const handleGridCount = () => {
+    setGridCount(false)
+  }
+  
+  
   return (
     <>
       <CourseNav progress={progress} totallesson={totallesson} />
@@ -136,9 +138,9 @@ const handleGridCount=()=>{
         // }
       }}>
         <Grid container>
-          <Grid xs={12} md={gridCount}>
+          <Grid xs={12} md={gridCount ? 12 : 9}>
             <Box sx={{ position: 'relative' }}>
-              <LessonDetails module={module} lesson={lesson} setGridCount={setGridCount}></LessonDetails>
+              <LessonDetails module={module} lesson={lesson} setGridCount={setGridCount} gridCount={gridCount}></LessonDetails>
               {/* rightMouseData */}
               <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "30%", }}>
                 <Tooltip title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left" componentsProps={{
@@ -176,8 +178,10 @@ const handleGridCount=()=>{
                 </Tooltip>
 
               </Box>
-             {gridCount ==12&& <Box sx={{position:'absolute',top:"20px",right:0}}>
-                <Button sx={{border:'1px solid black',color:'#333'}} onClick={handleGridCount}><ArrowBackIcon/> Course Content</Button>
+              {gridCount && <Box sx={{ position: 'absolute', top: "20px", right: '0',overflow:'hidden' }}>
+                <Button sx={{ border: '1px solid black',background:'#333', color: '#fff',borderRadius:'0','&:hover':{
+                  background:'#444', color: '#fff'
+                } }} onClick={handleGridCount}><ArrowBackIcon /> Course Content</Button>
               </Box>}
             </Box></Grid>
           <Grid xs={12} md={3} sx={{ borderLeft: '1px solid #bfbfbf', height: '100vh' }}>
