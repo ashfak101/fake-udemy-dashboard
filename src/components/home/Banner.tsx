@@ -36,7 +36,7 @@ const Banner = () => {
                                 backgroundColor: "#fff",
                                 border:'3px solid #fff'
                             },
-                            "& .Mui-selected":{
+                            "& .MuiTab-root.Mui-selected":{
                                 color:"#fff"
                             },
                             "& .MuiTab-textColorPrimary":{
@@ -45,7 +45,8 @@ const Banner = () => {
                             "& .MuiTab-root":{
                                 p:0,
                                 mr:1,
-                                fontSize:'16px',
+                                fill:'#fff',
+                                fontSize:'16px',color:'#fff',
                                 textTransform:'capitalize',
                                 letterSpacing:'0px',
                                 fontFamily:'Popins',fontWeight:'700'

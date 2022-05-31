@@ -184,7 +184,7 @@ const Index = () => {
                 } }} onClick={handleGridCount}><ArrowBackIcon /> Course Content</Button>
               </Box>}
             </Box></Grid>
-          <Grid xs={12} md={3} sx={{ borderLeft: '1px solid #bfbfbf', height: '100vh' }}>
+          <Grid xs={12} md={gridCount ? 0 : 3} sx={{  height: '100vh',background: '#f2f7f6' }}>
             <Box sx={{ background: '#f2f7f6' }}>
               {
                 courses?.map(course => (

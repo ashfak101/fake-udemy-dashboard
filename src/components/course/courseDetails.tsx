@@ -70,7 +70,7 @@ const CourseDetails = ({module,lesson}:Props) => {
                         letterSpacing: '0px',
                         fontFamily: 'Popins', fontWeight: '700'
                     },
-                    "& .Mui-selected": {
+                    "& .MuiTab-root.Mui-selected": {
                         color: "#333",
                        
 

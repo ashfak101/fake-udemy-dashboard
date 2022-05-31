@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import SlowMotionVideoIcon from '@mui/icons-material/SlowMotionVideo';
 import PostAddIcon from '@mui/icons-material/PostAdd';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; import CloseIcon from '@mui/icons-material/Close';
 interface Props {
   courses: MainCourse;
   // handleProgress: (e:any,progress:number)=>void
@@ -62,8 +62,8 @@ const CourseContent = ({ courses, setProgress }: Props) => {
   // }
 
   return (
-    <Box sx={{ borderLeft: '1px solid #999' }}>
-      <Typography sx={{ fontWeight: '700', p: 2, fontSize: '1.1rem', border: '1px solid #d1d7dc', fontFamily: 'Poppins' }}>Course content</Typography>
+    <Box sx={{}}>
+      <Box sx={{ border: '1px solid #d1d7dc',display:'flex',justifyContent:'space-between',alignItems:'center',pr:1 }}><Typography sx={{ fontWeight: '700', p: 2, fontSize: '1.1rem', fontFamily: 'Poppins' }}>Course content</Typography><CloseIcon/></Box>
       {courses.courseContent.map((content, index) => (
         <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', cursor: 'pointer' }}>
           <AccordionSummary
