@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { CourseInterFace, handleLocalStorage, MainCourse, Module } from '../../../components/types'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Index = () => {
   const router = useRouter();
   const { slug }: any = router.query
@@ -21,7 +22,8 @@ const Index = () => {
   const [rightMouseData, setRightMouseData] = useState<Module>()
   const [leftMouseData, setLeftMouseData] = useState<Module>()
   const [lesson, setLesson] = useState<CourseInterFace>()
-
+  const [gridCount,setGridCount]=useState<number>(9)
+  
   useEffect(() => {
     fetch('/api/courses-api')
       .then(res => res.json())
@@ -122,7 +124,9 @@ const Index = () => {
       setLeftMouseData(singleModule)
     }
   }
-
+const handleGridCount=()=>{
+  setGridCount(9)
+}
   return (
     <>
       <CourseNav progress={progress} totallesson={totallesson} />
@@ -132,9 +136,9 @@ const Index = () => {
         // }
       }}>
         <Grid container>
-          <Grid xs={12} md={9}>
+          <Grid xs={12} md={gridCount}>
             <Box sx={{ position: 'relative' }}>
-              <LessonDetails module={module} lesson={lesson}></LessonDetails>
+              <LessonDetails module={module} lesson={lesson} setGridCount={setGridCount}></LessonDetails>
               {/* rightMouseData */}
               <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "30%", }}>
                 <Tooltip title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left" componentsProps={{
@@ -172,6 +176,9 @@ const Index = () => {
                 </Tooltip>
 
               </Box>
+             {gridCount ==12&& <Box sx={{position:'absolute',top:"20px",right:0}}>
+                <Button sx={{border:'1px solid black',color:'#333'}} onClick={handleGridCount}><ArrowBackIcon/> Course Content</Button>
+              </Box>}
             </Box></Grid>
           <Grid xs={12} md={3} sx={{ borderLeft: '1px solid #bfbfbf', height: '100vh' }}>
             <Box sx={{ background: '#f2f7f6' }}>

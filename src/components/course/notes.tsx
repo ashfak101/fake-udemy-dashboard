@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { styled } from '@mui/material/styles';
 import { CourseInterFace, Module } from "components/types";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Editor } from "@tinymce/tinymce-react";
 const CssTextField = styled(TextField)({
     '& label.Mui-focused': {
         color: '#333',
@@ -53,7 +54,9 @@ const Notes = ({module,lesson}:Props) => {
         setText(textFieldValue)
         setIsOpen(false)
     }
-
+    const handleOnChange=(content:string,editor:any)=>{
+        setTextFieldValue(content)
+    }
     return (
         <Box sx={{ textAlign: '-webkit-center' }}>
             {!isOpen && <Box onClick={()=>{setIsOpen(true)}} sx={{ display: 'flex', width: {
@@ -65,12 +68,19 @@ const Notes = ({module,lesson}:Props) => {
            {isOpen && <Box sx={{ textAlign: 'left', width: {
                xs:'100%',md:'780px'
            }, mt: 2 }}>
-                <CssTextField
-                    placeholder="Type Here"
-                    sx={{ borderColor: '#999', width: {
-                        xs:'100%',md:'780px'
-                    }, }}
-                    onChange={(e)=>setTextFieldValue(e.target.value)}
+                <Editor
+              apiKey="j3vn8v923jix8aj3j32kbcvha6yz3204vokkdugr2c5u3gyh"
+              init={{
+                icons: 'thin',
+                placeholder: "Write your Notes...",
+                height: 250,
+                menubar: true,
+                textcolor_rows: '4',
+                toolbar:
+                  "undo redo | styleselect | fontsizeselect| code | bold italic | alignleft aligncenter alignright alignjustify | outdent indent ",
+              }}
+              onEditorChange={handleOnChange}
+             
                 />
                 <Box sx={{textAlign:'right',mt:'5px',color:'#333',width: {
                xs:'100%',md:'780px'
@@ -129,9 +139,8 @@ const Notes = ({module,lesson}:Props) => {
                             <DeleteIcon sx={{cursor:'pointer'}} onClick={()=>setText('')}/>
                             </Box>
                         </Box>
-                        <Box sx={{background:'#f7f9fa',p:2,ml:4,mt:'5px'}}>
-                            <Typography>{
-                                text} </Typography>
+                        <Box sx={{background:'#f7f9fa',p:2,ml:4,mt:'5px'}} dangerouslySetInnerHTML={{ __html: text }} >
+                            
                         </Box>
             </Box>}
         </Box>

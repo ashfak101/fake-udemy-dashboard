@@ -3,8 +3,10 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import React from 'react'
-
-const Icons = () => {
+interface Props{
+  setGridCount:any
+}
+const Icons = ({setGridCount}:Props) => {
     return (
         <>
             <Tooltip 
@@ -51,7 +53,7 @@ const Icons = () => {
                 }
               }}>
                 <IconButton sx={{ '&:hover': { background: 'none' }, ml: {xs:0,md:1}, color: '#333' }}>
-                    <SyncAltIcon />
+                    <SyncAltIcon onClick={()=>setGridCount(12)} />
                 </IconButton>
             </Tooltip>
 
