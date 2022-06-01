@@ -1,13 +1,45 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material"
+import { Box, Button, Typography } from "@mui/material"
 import ReplyIcon from '@mui/icons-material/Reply';
 import StarIcon from '@mui/icons-material/Star';
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { handleLocalStorage } from "components/types";
+import CircularProgress, {
+  CircularProgressProps,
+} from '@mui/material/CircularProgress';
 interface Props {
   progress: number
   totallesson: number
 }
+function CircularProgressWithLabel(
+  props: CircularProgressProps & { value: number },
+) {
+  return (
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography
+          variant="caption"
+          component="div"
+          color="text.secondary"
+          sx={{color:'#fff'}}
+        >{`${Math.round(props.value)}%`}</Typography>
+      </Box>
+    </Box>
+  );
+}
+
 const CourseNav = ({ progress, totallesson }: Props) => {
   const [value, setValue] = useState<any>(0)
   useEffect(() => {
@@ -40,7 +72,7 @@ const CourseNav = ({ progress, totallesson }: Props) => {
         </Typography></Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography sx={{ display: 'flex', alignItems: 'center', mr: 2, fontSize: '14px' }}><StarIcon />  Leave a rating</Typography>
-        <Typography sx={{ display: 'flex', alignItems: 'center', mr: 5, fontSize: '14px', }}>   <CircularProgress color="primary" sx={{ color: 'white', mr: 1 }} variant="determinate" value={value} /> your progress</Typography>
+        <Typography sx={{ display: 'flex', alignItems: 'center', mr: 5, fontSize: '14px', }}>   <CircularProgressWithLabel color="primary" sx={{ color: 'white', mr: 1 }} variant="determinate" value={value} /> your progress</Typography>
         <Button sx={{ border: '1px solid #fff', color: '#fff', fontSize: '11px', px: 4, mr: 2, borderRadius: '0' }}>Share <ReplyIcon sx={{ transform: 'rotate(-190deg)' }} /></Button>
       </Box>
     </Box>

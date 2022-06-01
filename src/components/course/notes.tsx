@@ -21,7 +21,7 @@ const Notes = ({ module, lesson }: Props) => {
     const open2 = Boolean(anchorEl2);
     const [btnText, setBtnText] = useState('All lecture')
     const [sortText, setSortText] = useState<string>('Sort by most recent')
-    const [isEdit,setIsEdit]=useState<boolean>(false)
+    const [isEdit, setIsEdit] = useState<boolean>(false)
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
@@ -57,7 +57,7 @@ const Notes = ({ module, lesson }: Props) => {
     const handleOnChange = (content: string, editor: any) => {
         setTextFieldValue(content)
     }
-    const handleEdit=()=>{
+    const handleEdit = () => {
         setIsEdit(true)
     }
     return (
@@ -94,7 +94,7 @@ const Notes = ({ module, lesson }: Props) => {
                         xs: '100%', md: '780px'
                     }
                 }}>
-                    <Button sx={{ color: '#333', mr: 1 }} onClick={() => { setIsOpen(false)}}>Cancel</Button>
+                    <Button sx={{ color: '#333', mr: 1 }} onClick={() => { setIsOpen(false) }}>Cancel</Button>
                     <Button sx={{
                         color: '#fff', background: "black", borderRadius: '0', '&:hover': {
                             color: '#fff', background: "black"
@@ -180,52 +180,52 @@ const Notes = ({ module, lesson }: Props) => {
                     xs: '100%', md: '780px'
                 }, mt: 2
             }}><>
-               { !isEdit &&  <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography variant="h6" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center' }}>{lesson?.title}  <Typography sx={{ ml: 1 }}>{module.id}.{module.lessonTitle}</Typography></Typography>
+                    {!isEdit && <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Typography variant="h6" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center' }}>{lesson?.title}  <Typography sx={{ ml: 1 }}>{module.id}.{module.lessonTitle}</Typography></Typography>
 
-                    <Box>
-                        <ModeIcon onClick={handleEdit} sx={{ cursor: 'pointer', mr: 2 }} />
-                        <DeleteIcon sx={{ cursor: 'pointer' }} onClick={() => setText('')} />
-                    </Box>
-                </Box>}
-                { !isEdit && <Box sx={{ background: '#f7f9fa', p: 2, ml: 4, mt: '5px' }} dangerouslySetInnerHTML={{ __html: text }} >
+                        <Box>
+                            <ModeIcon onClick={handleEdit} sx={{ cursor: 'pointer', mr: 2 }} />
+                            <DeleteIcon sx={{ cursor: 'pointer' }} onClick={() => setText('')} />
+                        </Box>
+                    </Box>}
+                    {!isEdit && <Box sx={{ background: '#f7f9fa', p: 2, ml: 4, mt: '5px' }} dangerouslySetInnerHTML={{ __html: text }} >
 
 
-                </Box>}</>
+                    </Box>}</>
                 <>
-                    {isEdit &&<Box sx={{
-                textAlign: 'left', width: {
-                    xs: '100%', md: '780px'
-                }, mt: 2
-            }}>
-                <Editor
-                    apiKey="j3vn8v923jix8aj3j32kbcvha6yz3204vokkdugr2c5u3gyh"
-                    init={{
-                        icons: 'thin',
-                        placeholder: "Write your Notes...",
-                        height: 250,
-                        menubar: true,
-                        textcolor_rows: '4',
-                        toolbar:
-                            "undo redo | styleselect | fontsizeselect| code | bold italic | alignleft aligncenter alignright alignjustify | outdent indent ",
-                    }}
-                    onEditorChange={handleOnChange}
+                    {isEdit && <Box sx={{
+                        textAlign: 'left', width: {
+                            xs: '100%', md: '780px'
+                        }, mt: 2
+                    }}>
+                        <Editor
+                            apiKey="j3vn8v923jix8aj3j32kbcvha6yz3204vokkdugr2c5u3gyh"
+                            init={{
+                                icons: 'thin',
+                                placeholder: "Write your Notes...",
+                                height: 250,
+                                menubar: true,
+                                textcolor_rows: '4',
+                                toolbar:
+                                    "undo redo | styleselect | fontsizeselect| code | bold italic | alignleft aligncenter alignright alignjustify | outdent indent ",
+                            }}
+                            onEditorChange={handleOnChange}
 
-                />
-                <Box sx={{
-                    textAlign: 'right', mt: '5px', color: '#333', width: {
-                        xs: '100%', md: '780px'
-                    }
-                }}>
-                    <Button sx={{ color: '#333', mr: 1 }} onClick={() => { setIsOpen(false) ; setIsEdit(false) }}>Cancel</Button>
-                    <Button sx={{
-                        color: '#fff', background: "black", borderRadius: '0', '&:hover': {
-                            color: '#fff', background: "black"
-                        }
-                    }} onClick={handleNotes}>Save Note</Button>
+                        />
+                        <Box sx={{
+                            textAlign: 'right', mt: '5px', color: '#333', width: {
+                                xs: '100%', md: '780px'
+                            }
+                        }}>
+                            <Button sx={{ color: '#333', mr: 1 }} onClick={() => { setIsOpen(false); setIsEdit(false) }}>Cancel</Button>
+                            <Button sx={{
+                                color: '#fff', background: "black", borderRadius: '0', '&:hover': {
+                                    color: '#fff', background: "black"
+                                }
+                            }} onClick={handleNotes}>Save Note</Button>
 
-                </Box>
-            </Box>}
+                        </Box>
+                    </Box>}
                 </>
 
             </Box>}
