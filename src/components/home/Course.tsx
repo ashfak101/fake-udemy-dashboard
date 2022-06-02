@@ -10,12 +10,12 @@ interface Props {
 const Course = ({ data }: Props) => {
 
   const [courseID, setCourseId] = useState<string | null>()
-  const [value, setValue] = useState<any>(0)
+  const [value, setValue] = useState<number>(0)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // Perform localStorage action
       const id = localStorage.getItem('id')
-      const progress = localStorage.getItem('progress')
+      const progress: any = localStorage.getItem('progress')
 
       setCourseId(id)
       setValue(progress)
@@ -35,7 +35,7 @@ const Course = ({ data }: Props) => {
               <Link href={`/courses/${courses.courseName}/learn/lecture/${courseID ? courseID : 1}`} passHref><Typography sx={{ color: 'black', fontSize: '14px', mt: '2px', fontWeight: '400', cursor: 'pointer', '&:hover': { color: '#5624d0' } }}>Jonas Schmedtmann , Web Develper,Designer and Teacher</Typography></Link>
               <LinearProgress variant="determinate" value={value} color="secondary" sx={{ color: "#5624d0" }} />
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Typography sx={{ fontSize: '12px' }}>{Math.round(value)}% Complete</Typography><Rating sx={{ fontSize: '12px' }} name="read-only" value={5} readOnly />
+                <Typography sx={{ fontSize: '12px' }}>{Math.round(value)}% Complete</Typography> <Rating sx={{ fontSize: '12px' }} name="read-only" value={5} readOnly />
               </Box>
               <Typography sx={{ color: 'black', fontSize: '12px', mt: '2px', fontWeight: '300', textAlign: 'right', pr: 1 }}>Leave a rating</Typography>
 

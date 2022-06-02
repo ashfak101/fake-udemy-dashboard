@@ -59,8 +59,8 @@ const Icons = ({setGridCount,gridCount}:Props) => {
                   }
                 }
               }}>
-                <IconButton sx={{ '&:hover': { background: 'none' }, ml: {xs:0,md:1}, color: '#333' }}>
-                    <SyncAltIcon  onClick={handleOnClick} />
+                <IconButton onClick={handleOnClick} sx={{ '&:hover': { background: 'none' }, ml: {xs:0,md:1}, color: '#333' }}>
+                    <SyncAltIcon   />
                 </IconButton>
             </Tooltip>
 
