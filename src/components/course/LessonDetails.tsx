@@ -2,7 +2,7 @@ import { Button, Box, FormControl, FormControlLabel, Radio, RadioGroup, Tab, Typ
 
 import { CourseInterFace, MainCourse, Module, Option, Quiz } from "components/types";
 import CheckIcon from '@mui/icons-material/Check';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import ReactPlayer from 'react-player/youtube'
 import ClearIcon from '@mui/icons-material/Clear';
@@ -34,7 +34,7 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
   const [userRightAns, setUserRightAns] = React.useState<any>([])
   const [quizArray, setQuizArray] = React.useState<any>([])
   const [showResult, setShowResult] = React.useState<boolean>(false)
-
+  const [quizStart,setQuizStart]=useState<boolean>(false)
  
 
   const handleChange = (id: Option) => {
@@ -130,32 +130,20 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
                   isCorrect === 'Incorrect' ? <Typography variant="h6" sx={{ background: '#fcaea0', display: 'flex', alignItems: 'center', py: 2, px: 2, fontWeight: 'blod' }}>   <ClearIcon></ClearIcon>  Incorrect answer. Please try again</Typography> : ''
                 }
               </Box>
-              {/* {showQuestion && <Box sx={{ px: { xs: 2, md: 14 }, mb: { xs: 0, md: 30 } }}>
-                <Typography variant="h6" sx={{ fontWeight: '300', fontFamily: 'Popins', color: '#333' }}>Question {currentQ + 1} :</Typography>
-                <Typography variant="h6" sx={{ fontWeight: '300', fontFamily: 'Popins' }}>{module?.quiz[currentQ].question} </Typography>
-                <Box>
+              {
+                !quizStart && <Box sx={{height:'40vh',display:'flex',justifyContent:'center',}}>
+                  <Box>
+                    <Typography variant="h4" sx={{fontFamily:'Popins',fontWeight:'700',}}>{module?.lessonTitle}</Typography>
+                    <Typography  sx={{fontFamily:'Popins',fontSize:'20px',my:2,}}>Quiz 1 | 5 question</Typography>
 
-                  {showQuestion && <FormControl sx={{ width: "100%" }} >
-
-                    <RadioGroup>
-                      {module?.quiz[currentQ].option.map((opt: Option, index: number) => {
-                        return (
-                          <FormControlLabel sx={{ width: { xs: '100%', md: '70%' }, border: '0.685px solid #333', my: 1, ml: "1px" }} onChange={() => handleChange(opt)} key={index} value={opt.id} disabled={opt.isChecked || isChecked} control={<Radio sx={{
-                            ml: 1, '&.Mui-checked': {
-                              color: "#333",
-                            },
-                          }} />} label={opt.text} />
-                        )
-                      })
-                      }
-                    </RadioGroup>
-
-                  </FormControl>}
-
+                    <Button sx={{background:'#333',p:2,fontSize:'12px',color:'#fff','&:hover':{
+                      background:'#333',
+                    }}} onClick={()=>setQuizStart(true)}>Start Quiz</Button>
+                  </Box>
                 </Box>
-              </Box>} */}
-              {/* Quiz Option */}
-              {showQuestion && <Question currentQ={currentQ} module={module} showQuestion={showQuestion} handleChange={handleChange} isChecked={isChecked}/>}
+              }
+              {/* Quiz Option */}{quizStart && <>
+              {showQuestion && <Question currentQ={currentQ} module={module} showQuestion={showQuestion} handleChange={handleChange} isChecked={isChecked}/>}</>}
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", mt: { xs: 2, md: 12 }, px: 2, py: "2px", border: '1px solid #999' }}>
                 <Typography sx={{ fontFamily: 'Popins' }}>Question {currentQ + 1} of {module?.quiz?.length}</Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>{
@@ -187,44 +175,7 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
             {
               // quiz Result section
               showResult && <QuizResult quizArray={quizArray} setGridCount={setGridCount} gridCount={gridCount} handleRetry={handleRetry} userRightAns={userRightAns}/>
-              // showResult && <Box>
-
-              //   <Box sx={{ background: '#1c1d1f', height: '20vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              //     <Box>
-              //       <Typography variant="h4" sx={{ color: '#fff', fontSize: '24px' }}>Complete the quiz to see your results.</Typography>
-              //       <Typography sx={{ color: '#fff', fontSize: '15px' }}>You got {userRightAns.length} out of 5 correct. 0 question is skipped.</Typography>
-              //     </Box>
-              //   </Box>
-              //   <Box>
-              //     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              //       <Box sx={{ height: { xs: '300px', md: '400px' } }} >
-              //         {
-              //           quizArray.length ? <Box>
-              //             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', fontWeight: 'bold' }}> <ClearIcon sx={{ color: "red" }}></ClearIcon> What You Should review </Typography>
-              //             {
-              //               quizArray.map((wrongAns: Quiz) => (
-              //                 <Box key={wrongAns.id} >
-              //                   <Typography sx={{ fontSize: '14px', my: 1, fontFamily: 'Popins' }}>{wrongAns.question}</Typography>
-              //                   <Typography sx={{ fontSize: '14px', my: 1, fontFamily: 'Popins' }}>Module{wrongAns.id + 1} : {wrongAns.module}</Typography>
-              //                 </Box>
-              //               ))
-              //             }
-
-              //           </Box> : ''
-              //         }
-              //       </Box></Box>
-              //     <Box sx={{ border: '1px solid #333', display: 'flex', flexDirection: 'row-reverse', py: 1 }}>
-
-              //       <Icons setGridCount={setGridCount} gridCount={gridCount} />
-              //       <Button sx={{
-              //         background: "#333", color: '#fff', borderRadius: '0', px: 2, "&:hover": {
-              //           background: "#999",
-              //           color: '#fff'
-              //         }
-              //       }} onClick={handleRetry}>Retry Quiz</Button>
-              //     </Box>
-              //   </Box>
-              // </Box>
+              
             }
 
           </Box> : ''

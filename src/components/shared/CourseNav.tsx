@@ -33,7 +33,7 @@ function CircularProgressWithLabel(
           variant="caption"
           component="div"
           color="text.secondary"
-          sx={{color:'#fff'}}
+          sx={{ color: '#fff' }}
         >{`${Math.round(props.value)}%`}</Typography>
       </Box>
     </Box>
@@ -53,7 +53,7 @@ const CourseNav = ({ progress, totallesson }: Props) => {
       setValue(id)
     }
 
-  }, [progress, totallesson, value])
+  }, [progress, totallesson,])
   return (
     <Box sx={{
       height: { xs: '10vh', md: '6vh' }, borderBottom: '1px dotted #3e4143', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#1c1d1f', color: '#fff', flexDirection: {

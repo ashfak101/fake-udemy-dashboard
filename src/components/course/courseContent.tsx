@@ -63,7 +63,7 @@ const CourseContent = ({ courses, setProgress }: Props) => {
 
   return (
     <Box sx={{}}>
-      <Box sx={{ border: '1px solid #d1d7dc',display:'flex',justifyContent:'space-between',alignItems:'center',pr:1 }}><Typography sx={{ fontWeight: '700', p: 2, fontSize: '1.1rem', fontFamily: 'Poppins' }}>Course content</Typography><CloseIcon/></Box>
+      <Box sx={{ border: '1px solid #d1d7dc', display: 'flex', justifyContent: 'space-between', alignItems: 'center', pr: 1 }}><Typography sx={{ fontWeight: '700', p: 2, fontSize: '1.1rem', fontFamily: 'Poppins' }}>Course content</Typography><CloseIcon /></Box>
       {courses.courseContent.map((content, index) => (
         <Accordion key={content.id} sx={{ boxShadow: 'none', background: '#f2f7f6', cursor: 'pointer' }}>
           <AccordionSummary
