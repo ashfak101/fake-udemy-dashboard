@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap");
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins','Roboto', sans-serif;
-  
-    
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 a {
@@ -17,19 +15,19 @@ a {
 * {
   box-sizing: border-box;
 }
-.MuiCircularProgress-svg{
-    color: #fff;
-    border: 1px solid #3b3b3b;
-    border-radius: 50%;
-    fill: aliceblue;
+.MuiCircularProgress-svg {
+  color: #fff;
+  border: 1px solid #3b3b3b;
+  border-radius: 50%;
+  fill: aliceblue;
 }
-.MuiCircularProgress-circle{
+.MuiCircularProgress-circle {
   border-color: #3b3b3b;
 }
-.MuiCheckbox-root .Mui-checked{
+.MuiCheckbox-root .Mui-checked {
   color: #3b3b3b;
 }
- /* .MuiTooltip-tooltipPlacementTop ,.MuiTooltip-tooltipPlacementLeft, .MuiTooltip-tooltipPlacementRight{
+/* .MuiTooltip-tooltipPlacementTop ,.MuiTooltip-tooltipPlacementLeft, .MuiTooltip-tooltipPlacementRight{
   color: #fff;
   font-size: 12px;
   background-color: #3b3b3b;
@@ -38,9 +36,17 @@ a {
   
 } */
 
-.MuiFormControlLabel-label{
-   font-family: 'Poppins';
-   font-size: 14px;
-   font-weight: 700;
-   margin-left: 1px;
+.MuiFormControlLabel-label {
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 1px;
+}
+
+.card-image-design {
+  border: 1px solid lightgray !important;
+}
+
+.card-image-design:hover {
+  opacity: 0.5;
 }

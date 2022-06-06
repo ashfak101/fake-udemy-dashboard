@@ -31,10 +31,10 @@ const Banner = () => {
             sx={{
               color: "#fff",
               fontSize: "2.2rem",
-              fontWeight: "700",
+              fontWeight: "900",
               letterSpacing: "-.05rem",
               lineHeight: "1.25",
-              fontFamily: "Times",
+              fontFamily: "serif",
             }}
           >
             My learning
@@ -49,8 +49,8 @@ const Banner = () => {
               sx={{
                 color: "#fff",
                 "& .MuiTabs-indicator": {
-                  backgroundColor: "#fff",
-                  border: "3px solid #fff",
+                  backgroundColor: "#BBBCBC",
+                  border: "3px solid #BBBCBC",
                 },
                 "& .MuiTab-root.Mui-selected": {
                   color: "#fff",
@@ -71,9 +71,39 @@ const Banner = () => {
                 },
               }}
             >
-              <Tab label="All courses" {...a11yProps(0)} />
-              <Tab label="My Lists" {...a11yProps(1)} />
-              <Tab label="Wishlist" {...a11yProps(2)} />
+              <Tab
+                label={
+                  <>
+                    {" "}
+                    <Typography sx={{ textTransform: "none" }}>
+                      All courses
+                    </Typography>{" "}
+                  </>
+                }
+                {...a11yProps(0)}
+              />
+              <Tab
+                label={
+                  <>
+                    {" "}
+                    <Typography sx={{ textTransform: "none" }}>
+                      My Lists
+                    </Typography>{" "}
+                  </>
+                }
+                {...a11yProps(1)}
+              />
+              <Tab
+                label={
+                  <>
+                    {" "}
+                    <Typography sx={{ textTransform: "none" }}>
+                      Wishlist
+                    </Typography>{" "}
+                  </>
+                }
+                {...a11yProps(2)}
+              />
             </Tabs>
           </Box>
         </Box>
