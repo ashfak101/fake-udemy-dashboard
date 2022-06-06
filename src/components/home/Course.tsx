@@ -49,7 +49,7 @@ const Course = ({ data }: Props) => {
 
   return (
     <Box sx={{ marginBottom: "128px" }}>
-      <Container maxWidth="md" sx={{ mt: 3 }}>
+      <Container maxWidth="md" sx={{ mt: 4 }}>
         <Box sx={{ width: "240px", height: "245.34px" }}>
           <Paper sx={{ cursor: "pointer", position: "relative" }} elevation={0}>
             <Box sx={{ position: "absolute", zIndex: "1", right: "0" }}>

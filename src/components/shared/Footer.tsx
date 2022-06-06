@@ -22,7 +22,13 @@ const Footer = () => {
           <Box sx={{ flexGrow: 1, mx: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={8} xl={10}>
-                <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
+                <Item
+                  sx={{
+                    boxShadow: "0",
+                    backgroundColor: "transparent",
+                    marginBottom: "20px",
+                  }}
+                >
                   <Typography
                     sx={{
                       textAlign: "left",
@@ -66,7 +72,7 @@ const Footer = () => {
           <Box sx={{ flexGrow: 1, mx: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={8} xl={7}>
-                <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
+                <Item sx={{ boxShadow: "0", backgroundColor: "transparent", marginBottom:'25px', marginTop:'10px' }}>
                   <Typography
                     sx={{
                       textAlign: "left",
@@ -82,7 +88,7 @@ const Footer = () => {
                 </Item>
               </Grid>
               <Grid item xs={4} xl={5}>
-                <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
+                <Item sx={{ boxShadow: "0", backgroundColor: "transparent", marginTop:'10px' }}>
                   <Box sx={{ flexGrow: 1 }}>
                     <Grid
                       container
@@ -183,6 +189,7 @@ const Footer = () => {
                   sx={{
                     boxShadow: "0",
                     backgroundColor: "transparent",
+                    marginTop:'10px'
                   }}
                 >
                   <Box sx={{ flexGrow: 1 }}>
@@ -306,6 +313,7 @@ const Footer = () => {
                       width: "140px",
                       height: "40px",
                       borderRadius: "0px",
+                      marginTop:'20px'
                     }}
                   >
                     <Typography sx={{ color: "white", textTransform: "none" }}>
@@ -319,10 +327,10 @@ const Footer = () => {
         </Box>
         <Box>
           <Box sx={{ flexGrow: 1, mx: 3 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{marginTop:'20px'}}>
               <Grid item xs={8} xl={6}>
                 <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
-                  <Box sx={{ textAlign: "left" }}>
+                  <Box sx={{ textAlign: "left", marginLeft:'10px' }}>
                     <Image
                       src="/assets/images/udemylogofooter.svg"
                       width="91px"
