@@ -8,6 +8,7 @@ import About from "./about";
 import Notes from "./notes";
 import { CourseInterFace, Module } from "components/types";
 import Footer from "components/shared/Footer";
+import Reviews from "./Reviews";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -82,6 +83,7 @@ const CourseDetails = ({ module, lesson }: Props) => {
           <Tab label={<SearchIcon />} {...a11yProps(0)} />
           <Tab label="Overview" {...a11yProps(1)} />
           <Tab label="Notes" {...a11yProps(2)} />
+          <Tab label="Reviews" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={1}>
@@ -92,6 +94,9 @@ const CourseDetails = ({ module, lesson }: Props) => {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Notes module={module} lesson={lesson} />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Reviews/>
       </TabPanel>
       <Footer />
     </Box>

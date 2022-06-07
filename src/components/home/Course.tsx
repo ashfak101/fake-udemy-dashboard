@@ -21,6 +21,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
+import ReplySharpIcon from "@mui/icons-material/ReplySharp";
 
 interface Props {
   data: MainCourse[];
@@ -106,18 +107,14 @@ const Course = ({ data }: Props) => {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <MenuItem>
-                  <Avatar /> Profile
-                </MenuItem>
-                <MenuItem>
-                  <Avatar /> My account
-                </MenuItem>
+                <MenuItem>Lists</MenuItem>
+                <MenuItem>You have no list</MenuItem>
                 <Divider />
                 <MenuItem>
-                  <ListItemIcon>
+                  <ReplySharpIcon sx={{ transform: " scaleX(-1)" , marginRight:'10px'}}>
                     <PersonAdd fontSize="small" />
-                  </ListItemIcon>
-                  Add another account
+                  </ReplySharpIcon>
+                  Share
                 </MenuItem>
                 <MenuItem>
                   <ListItemIcon>

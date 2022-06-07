@@ -142,7 +142,7 @@ const Index = () => {
             <Box sx={{ position: 'relative' }}>
               <LessonDetails module={module} lesson={lesson} setGridCount={setGridCount} gridCount={gridCount}></LessonDetails>
               {/* rightMouseData */}
-              <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "30%", }}>
+              <Box onMouseOver={handleNextLesson} sx={{ position: 'absolute', right: { xs: "0", md: '0', }, top: "280px", }}>
                 <Tooltip title={`${rightMouseData?.id}.${rightMouseData?.lessonTitle}`} placement="left" componentsProps={{
                   tooltip: {
                     sx: {
@@ -160,7 +160,7 @@ const Index = () => {
                 </Tooltip>
               </Box>
               {/* leftMouseData */}
-              <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "30%" }}>
+              <Box onMouseOver={handlePrevLesson} sx={{ position: 'absolute', left: 0, top: "280px" }}>
                 <Tooltip title={`${leftMouseData?.id}.${leftMouseData?.lessonTitle}`} placement="right" componentsProps={{
                   tooltip: {
                     sx: {
@@ -184,7 +184,7 @@ const Index = () => {
                 } }} onClick={handleGridCount}><ArrowBackIcon /> Course Content</Button>
               </Box>}
             </Box></Grid>
-          <Grid xs={12} md={gridCount ? 0 : 3} sx={{  height: '100vh',background: '#f2f7f6' }}>
+          <Grid xs={12} md={gridCount ? 0 : 3} sx={{  height: '1624px',background: '#f2f7f6' }}>
             <Box sx={{ background: '#f2f7f6' }}>
               {
                 courses?.map(course => (
