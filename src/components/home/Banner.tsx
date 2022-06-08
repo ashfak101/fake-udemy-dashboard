@@ -23,7 +23,7 @@ const Banner = () => {
   };
 
   return (
-    <Box sx={{ background: "#1c1d1f", height: "138px" }}>
+    <Box sx={{ background: "#1c1d1f", height: "147px" }}>
       <Container maxWidth="md">
         <Box sx={{ pt: "45px" }}>
           <Typography
@@ -35,6 +35,7 @@ const Banner = () => {
               letterSpacing: "-.05rem",
               lineHeight: "1.25",
               fontFamily: "serif",
+              marginBottom:'10px'
             }}
           >
             My learning

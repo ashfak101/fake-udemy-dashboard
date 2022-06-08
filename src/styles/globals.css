@@ -50,3 +50,34 @@ a {
 .card-image-design:hover {
   opacity: 0.5;
 }
+
+.css-v9qwk5 {
+  margin-left: 0px;
+  width: auto;
+}
+
+.MuiLinearProgress-barColorPrimary {
+  background-color: #6a6f73;
+}
+
+.MuiLinearProgress-root {
+  background-color: #d1d7dc;
+}
+
+.MuiTabs-indicator {
+  background-color: transparent;
+}
+
+.MuiTabs-root {
+  border: 0;
+}
+
+.MuiButtonBase-root {
+  max-width: 1000px;
+  padding: 0;
+  min-height: 0;
+}
+
+.css-19kzrtu {
+  padding-left: 0;
+}

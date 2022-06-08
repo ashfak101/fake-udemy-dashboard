@@ -8,6 +8,7 @@ import { CourseInterFace, handleLocalStorage, MainCourse, Module } from '../../.
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Footer from 'components/shared/Footer';
 const Index = () => {
   const router = useRouter();
   const { slug }: any = router.query
@@ -184,8 +185,8 @@ const Index = () => {
                 } }} onClick={handleGridCount}><ArrowBackIcon /> Course Content</Button>
               </Box>}
             </Box></Grid>
-          <Grid xs={12} md={gridCount ? 0 : 3} sx={{  height: '1624px',background: '#f2f7f6' }}>
-            <Box sx={{ background: '#f2f7f6' }}>
+          <Grid xs={12} md={gridCount ? 0 : 3} sx={{  height: '100%',background: '#f2f7f6' }}>
+            <Box sx={{ background: '#fff' }}>
               {
                 courses?.map(course => (
                   <>
@@ -196,9 +197,7 @@ const Index = () => {
             </Box></Grid>
         </Grid>
       </Box>
-      <Box>
-
-      </Box>
+      <Footer/>
     </>
   )
 }

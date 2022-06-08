@@ -7,7 +7,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import About from "./about";
 import Notes from "./notes";
 import { CourseInterFace, Module } from "components/types";
-import Footer from "components/shared/Footer";
 import Reviews from "./Reviews";
 
 interface TabPanelProps {
@@ -78,6 +77,7 @@ const CourseDetails = ({ module, lesson }: Props) => {
             "& .MuiTab-root.Mui-selected": {
               color: "#333",
             },
+            marginTop: "20px",
           }}
         >
           <Tab label={<SearchIcon />} {...a11yProps(0)} />
@@ -96,9 +96,8 @@ const CourseDetails = ({ module, lesson }: Props) => {
         <Notes module={module} lesson={lesson} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <Reviews/>
+        <Reviews />
       </TabPanel>
-      <Footer />
     </Box>
   );
 };

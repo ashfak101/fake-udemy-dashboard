@@ -21,7 +21,7 @@ const Footer = () => {
         <Box sx={{ borderBottom: "1px solid gray" }}>
           <Box sx={{ flexGrow: 1, mx: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={8} xl={10}>
+              <Grid item xs={12} xl={10}>
                 <Item
                   sx={{
                     boxShadow: "0",
@@ -49,7 +49,7 @@ const Footer = () => {
                   </Typography>
                 </Item>
               </Grid>
-              <Grid item xs={4} xl={2}>
+              <Grid item xs={12} xl={2}>
                 <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
                   <Button
                     sx={{
@@ -71,7 +71,7 @@ const Footer = () => {
         <Box sx={{ borderBottom: "1px solid gray" }}>
           <Box sx={{ flexGrow: 1, mx: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={8} xl={7}>
+              <Grid item xs={12} xl={7}>
                 <Item sx={{ boxShadow: "0", backgroundColor: "transparent", marginBottom:'25px', marginTop:'10px' }}>
                   <Typography
                     sx={{
@@ -87,7 +87,7 @@ const Footer = () => {
                   </Typography>
                 </Item>
               </Grid>
-              <Grid item xs={4} xl={5}>
+              <Grid item xs={12} xl={5}>
                 <Item sx={{ boxShadow: "0", backgroundColor: "transparent", marginTop:'10px' }}>
                   <Box sx={{ flexGrow: 1 }}>
                     <Grid
@@ -99,7 +99,7 @@ const Footer = () => {
                         justifyContent: "center",
                       }}
                     >
-                      <Grid item xs={8} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -114,7 +114,7 @@ const Footer = () => {
                           />
                         </Item>
                       </Grid>
-                      <Grid item xs={4} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -129,7 +129,7 @@ const Footer = () => {
                           />
                         </Item>
                       </Grid>
-                      <Grid item xs={4} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -144,7 +144,7 @@ const Footer = () => {
                           />
                         </Item>
                       </Grid>
-                      <Grid item xs={8} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -159,7 +159,7 @@ const Footer = () => {
                           />
                         </Item>
                       </Grid>
-                      <Grid item xs={8} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -184,7 +184,7 @@ const Footer = () => {
         <Box>
           <Box sx={{ flexGrow: 1, mx: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={8} xl={10}>
+              <Grid item xs={12} xl={10}>
                 <Item
                   sx={{
                     boxShadow: "0",
@@ -194,7 +194,7 @@ const Footer = () => {
                 >
                   <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                      <Grid item xs={8} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -228,7 +228,7 @@ const Footer = () => {
                           </Typography>
                         </Item>
                       </Grid>
-                      <Grid item xs={4} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -262,7 +262,7 @@ const Footer = () => {
                           </Typography>
                         </Item>
                       </Grid>
-                      <Grid item xs={4} xl={2}>
+                      <Grid item xs={12} xl={2}>
                         <Item
                           sx={{
                             boxShadow: "0",
@@ -300,7 +300,7 @@ const Footer = () => {
                   </Box>
                 </Item>
               </Grid>
-              <Grid item xs={4} xl={2}>
+              <Grid item xs={12} xl={2}>
                 <Item
                   sx={{
                     boxShadow: "0",
@@ -328,9 +328,9 @@ const Footer = () => {
         <Box>
           <Box sx={{ flexGrow: 1, mx: 3 }}>
             <Grid container spacing={2} sx={{marginTop:'20px'}}>
-              <Grid item xs={8} xl={6}>
+              <Grid item xs={12} xl={6}>
                 <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
-                  <Box sx={{ textAlign: "left", marginLeft:'10px' }}>
+                  <Box sx={{ textAlign: {xl:"left", xs:'center'}, marginLeft:'10px' }}>
                     <Image
                       src="/assets/images/udemylogofooter.svg"
                       width="91px"
@@ -340,7 +340,7 @@ const Footer = () => {
                   </Box>
                 </Item>
               </Grid>
-              <Grid item xs={4} xl={6}>
+              <Grid item xs={12} xl={6}>
                 <Item sx={{ boxShadow: "0", backgroundColor: "transparent" }}>
                   <Typography
                     sx={{

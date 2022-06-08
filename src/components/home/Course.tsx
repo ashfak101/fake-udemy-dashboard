@@ -111,7 +111,9 @@ const Course = ({ data }: Props) => {
                 <MenuItem>You have no list</MenuItem>
                 <Divider />
                 <MenuItem>
-                  <ReplySharpIcon sx={{ transform: " scaleX(-1)" , marginRight:'10px'}}>
+                  <ReplySharpIcon
+                    sx={{ transform: " scaleX(-1)", marginRight: "10px" }}
+                  >
                     <PersonAdd fontSize="small" />
                   </ReplySharpIcon>
                   Share
