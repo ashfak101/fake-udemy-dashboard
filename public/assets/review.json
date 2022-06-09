@@ -1,0 +1,92 @@
+[
+    {
+      "id": "1",
+      "rating": "5",
+      "userName": "Marius P.",
+      "reviewTime": "a week ago",
+      "userReview": "An excellent course, stupendous I might say; condensed and full of practical advices. For a beginer, i think it's a must do. I'm anxious to follow your courses on responsive websites, and then javascript. A big thank you.",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "2",
+      "rating": "5",
+      "userName": "Jasper Lawrence F.",
+      "reviewTime": "2 months ago",
+      "userReview": "Sir Jonas is ONE of my favorite instructors in Web Development because his course is very-well structured and the content was delivered to the students proficiently. I HIGHLY RECOMMEND Sir Jonas to anyone who wants to learn Full-Stack Web Development. Love it!",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "3",
+      "rating": "4",
+      "userName": "Gillian Y.",
+      "reviewTime": "a week ago",
+      "userReview": "It is great that I found this free tutorial with Sir Jonas! It is very helpful for a beginner like me to understand how to make my own website and how does it flow. Again, thank you so much and have a great day!",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "4",
+      "rating": "4",
+      "userName": "Ronan C.",
+      "reviewTime": "a month ago",
+      "userReview": "The course discusses the tools one needs to design and develop a great website. I enjoyed learning about WHY these practices are good to follow. It is a course I will keep on referring to as my design skills improve.",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "5",
+      "rating": "3",
+      "userName": "Dennis V.",
+      "reviewTime": "2 months ago",
+      "userReview": "Even wat problemen met geluid dat het weg viel. Inhoud is goed.",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "6",
+      "rating": "3",
+      "userName": "Theo S.",
+      "reviewTime": "6 months ago",
+      "userReview": "For a 1 hour course, it was good. Very basic information about designing a website, somethings I might have overlooked. But I would have preferred more examples without a border, which reduces the size of the examples. Also, detailing how to structure planning the website from the very start. Links to the resources would also be very helpful.",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "7",
+      "rating": "2",
+      "userName": "LD.",
+      "reviewTime": "3 months ago",
+      "userReview": "No how to's, just talking. Guess I can't complain because it's free but I wouldn't classify it as a course. I would instead call it and now a word with the instructor.",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "8",
+      "rating": "2",
+      "userName": "George K.",
+      "reviewTime": "10 months ago",
+      "userReview": "There are some errors in the cc translation (ex. Funds instead of Fonts) The voice is too mechanical. The course is based on a non existed e-book. The reference instead is an endless site with no guidance on how to approach it",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "9",
+      "rating": "1",
+      "userName": "Sayan R.",
+      "reviewTime": "3 months ago",
+      "userReview": "The author didn't write one line of code, only common words. This is not a course, this is a list of advice. I strongly recommend to not waste your time on this course.",
+      "isLiked": false,
+      "isDisliked": false
+    },
+    {
+      "id": "10",
+      "rating": "1",
+      "userName": "Laurentiu S.",
+      "reviewTime": "4 years ago",
+      "userReview": "The course does not reflect its objective , It was nothing like what I thought it would be. After the course no way you are able to design a web or even way to do it.",
+      "isLiked": false,
+      "isDisliked": false
+    }
+  ]

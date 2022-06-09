@@ -86,7 +86,8 @@ const CourseNav = ({ progress, totallesson }: Props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [hover, setHover] = useState(-1);
-  const [rateValue, setRateValue] = useState<number | null>(2);
+  const [rateValue, setRateValue] = useState<number | null>(0);
+  const [comment, setComment] = useState("");
 
   const [value, setValue] = useState<any>(0);
   useEffect(() => {
@@ -100,6 +101,23 @@ const CourseNav = ({ progress, totallesson }: Props) => {
       setValue(id);
     }
   }, [progress, totallesson]);
+
+  // get the value from modal text field
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setComment(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    // get the data of the rateValue and comment and pass todays date
+    const data = {
+      value,
+      comment,
+      date: new Date().toLocaleDateString(),
+    };
+    console.log(data);
+    setOpen(false);
+  };
+
   return (
     <Box
       sx={{
@@ -234,6 +252,7 @@ const CourseNav = ({ progress, totallesson }: Props) => {
                   multiline
                   id="fullWidth"
                   placeholder="Tell us about your own personal experience taking this course. Was it a good match for you?"
+                  onChange={handleChange}
                 />
               </Box>
               <Box sx={{ textAlign: "right" }}>
@@ -249,6 +268,7 @@ const CourseNav = ({ progress, totallesson }: Props) => {
                       background: "#5624d0",
                     },
                   }}
+                  onClick={handleSubmit}
                 >
                   <Typography sx={{ color: "white" }}>
                     Save & Continue

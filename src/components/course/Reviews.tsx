@@ -121,35 +121,63 @@ function a11yProps(index: number) {
 
 const Reviews = () => {
   const [ratingValue, setRatingValue] = React.useState<number | null>(4.5);
-  const [progress, setProgress] = React.useState(0);
-  const [age, setAge] = React.useState("");
-
-  const [value, setValue] = React.useState(0);
+  const [progressOne, setProgressOne] = React.useState(0);
+  const [progressTwo, setProgressTwo] = React.useState(0);
+  const [progressThree, setProgressThree] = React.useState(0);
+  const [progressFour, setProgressFour] = React.useState(0);
+  const [progressFive, setProgressFive] = React.useState(0);
+  const [value, setValue] = React.useState(0) as any;
+  const [rateValueOne, setRateValueOne] = React.useState(1);
+  const [rateValueTwo, setRateValueTwo] = React.useState(2);
+  const [rateValueThree, setRateValueThree] = React.useState(3);
+  const [rateValueFour, setRateValueFour] = React.useState(4);
+  const [rateValueFive, setRateValueFive] = React.useState(5);
+  const [reviews, setReviews] = React.useState([]);
+  const [filterReview, setFilterReview] = React.useState([]);
 
   const handleChanges = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setValue(event.target.value as any);
   };
 
   React.useEffect(() => {
-    setProgress(50);
-    // const timer = setInterval(() => {
-    //   setProgress((oldProgress) => {
-    //     if (oldProgress === 100) {
-    //       return 0;
-    //     }
-    //     const diff = Math.random() * 10;
-    //     return Math.min(oldProgress + diff, 100);
-    //   });
-    // }, 500);
+    fetch("/assets/review.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setReviews(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    // return () => {
-    //   clearInterval(timer);
-    // };
-  }, []);
+    const filter = reviews.filter((review: any) => {
+      if (value == 0) {
+        return review.rating == 5;
+      }
+      if (value == 1) {
+        return review.rating == 4;
+      }
+      if (value == 2) {
+        return review.rating == 3;
+      }
+      if (value == 3) {
+        return review.rating == 2;
+      }
+      if (value == 4) {
+        return review.rating == 1;
+      }
+    });
+    setFilterReview(filter);
+    setProgressOne(55);
+    setProgressTwo(32);
+    setProgressThree(10);
+    setProgressFour(2);
+    setProgressFive(1);
+  }, [value, reviews]);
+
   return (
     <div>
       <Box>
@@ -208,14 +236,7 @@ const Reviews = () => {
                 </Item>
               </Grid>
               <Grid item xs={12} xl={10} sx={{ marginTop: "10px" }}>
-                <Box
-                // sx={{
-                //   flexGrow: 1,
-                //   bgcolor: "background.paper",
-                //   display: "flex",
-                //   height: 224,
-                // }}
-                >
+                <Box>
                   <Tabs
                     orientation="vertical"
                     // variant="scrollable"
@@ -235,13 +256,17 @@ const Reviews = () => {
                             <Box sx={{ width: "500px", marginRight: "10px" }}>
                               <LinearProgress
                                 variant="determinate"
-                                value={progress}
+                                value={progressOne}
                               />
                             </Box>
                             <Box>
-                              <Rating name="read-only" value={value} readOnly />
+                              <Rating
+                                name="read-only"
+                                value={rateValueFive}
+                                readOnly
+                              />
                             </Box>
-                            <Typography>50%</Typography>
+                            <Typography>{progressOne}%</Typography>
                           </Box>
                         </>
                       }
@@ -254,13 +279,17 @@ const Reviews = () => {
                             <Box sx={{ width: "500px", marginRight: "10px" }}>
                               <LinearProgress
                                 variant="determinate"
-                                value={progress}
+                                value={progressTwo}
                               />
                             </Box>
                             <Box>
-                              <Rating name="read-only" value={value} readOnly />
+                              <Rating
+                                name="read-only"
+                                value={rateValueFour}
+                                readOnly
+                              />
                             </Box>
-                            <Typography>50%</Typography>
+                            <Typography>{progressTwo}%</Typography>
                           </Box>
                         </>
                       }
@@ -273,13 +302,17 @@ const Reviews = () => {
                             <Box sx={{ width: "500px", marginRight: "10px" }}>
                               <LinearProgress
                                 variant="determinate"
-                                value={progress}
+                                value={progressThree}
                               />
                             </Box>
                             <Box>
-                              <Rating name="read-only" value={value} readOnly />
+                              <Rating
+                                name="read-only"
+                                value={rateValueThree}
+                                readOnly
+                              />
                             </Box>
-                            <Typography>50%</Typography>
+                            <Typography>{progressThree}%</Typography>
                           </Box>
                         </>
                       }
@@ -292,13 +325,17 @@ const Reviews = () => {
                             <Box sx={{ width: "500px", marginRight: "10px" }}>
                               <LinearProgress
                                 variant="determinate"
-                                value={progress}
+                                value={progressFour}
                               />
                             </Box>
                             <Box>
-                              <Rating name="read-only" value={value} readOnly />
+                              <Rating
+                                name="read-only"
+                                value={rateValueTwo}
+                                readOnly
+                              />
                             </Box>
-                            <Typography>50%</Typography>
+                            <Typography>{progressFour}%</Typography>
                           </Box>
                         </>
                       }
@@ -311,13 +348,17 @@ const Reviews = () => {
                             <Box sx={{ width: "500px", marginRight: "10px" }}>
                               <LinearProgress
                                 variant="determinate"
-                                value={progress}
+                                value={progressFive}
                               />
                             </Box>
                             <Box>
-                              <Rating name="read-only" value={value} readOnly />
+                              <Rating
+                                name="read-only"
+                                value={rateValueOne}
+                                readOnly
+                              />
                             </Box>
-                            <Typography>50%</Typography>
+                            <Typography>{progressFive}%</Typography>
                           </Box>
                         </>
                       }
@@ -382,19 +423,19 @@ const Reviews = () => {
                           <Box sx={{ minWidth: 120 }}>
                             <FormControl fullWidth size="small">
                               <Select
-                                value={age}
+                                value={value}
                                 onChange={handleChange}
                                 displayEmpty
                                 inputProps={{ "aria-label": "Without label" }}
                               >
-                                <MenuItem value="">
+                                {/* <MenuItem value="">
                                   <em>All ratings</em>
-                                </MenuItem>
-                                <MenuItem value={10}>Five Stars</MenuItem>
-                                <MenuItem value={20}>Four Stars</MenuItem>
-                                <MenuItem value={30}>Three Stars</MenuItem>
-                                <MenuItem value={40}>Two Stars</MenuItem>
-                                <MenuItem value={50}>One Stars</MenuItem>
+                                </MenuItem> */}
+                                <MenuItem value={0}>Five Stars</MenuItem>
+                                <MenuItem value={1}>Four Stars</MenuItem>
+                                <MenuItem value={2}>Three Stars</MenuItem>
+                                <MenuItem value={3}>Two Stars</MenuItem>
+                                <MenuItem value={4}>One Stars</MenuItem>
                               </Select>
                             </FormControl>
                           </Box>
@@ -408,19 +449,19 @@ const Reviews = () => {
                           }}
                         >
                           <TabPanel value={value} index={0}>
-                            <UserReview />
+                            <UserReview reviews={filterReview} />
                           </TabPanel>
                           <TabPanel value={value} index={1}>
-                            <UserReview />
+                            <UserReview reviews={filterReview} />
                           </TabPanel>
                           <TabPanel value={value} index={2}>
-                            <UserReview />
+                            <UserReview reviews={filterReview} />
                           </TabPanel>
                           <TabPanel value={value} index={3}>
-                            <UserReview />
+                            <UserReview reviews={filterReview} />
                           </TabPanel>
                           <TabPanel value={value} index={4}>
-                            <UserReview />
+                            <UserReview reviews={filterReview} />
                           </TabPanel>
                         </Item>
                       </Grid>
