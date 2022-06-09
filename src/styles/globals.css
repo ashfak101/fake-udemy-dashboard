@@ -57,27 +57,27 @@ a {
 }
 
 .MuiLinearProgress-barColorPrimary {
-  background-color: #6a6f73;
+  background-color: #6a6f73 !important;
 }
 
 .MuiLinearProgress-root {
-  background-color: #d1d7dc;
+  background-color: #d1d7dc !important;
 }
 
 .MuiTabs-indicator {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .MuiTabs-root {
-  border: 0;
+  border: 0 !important;
 }
 
 .MuiButtonBase-root {
-  max-width: 1000px;
-  padding: 0;
-  min-height: 0;
+  max-width: 1000px !important;
+  padding: 0 !important;
+  min-height: 0 !important;
 }
 
 .css-19kzrtu {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
