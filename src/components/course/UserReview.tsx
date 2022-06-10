@@ -22,6 +22,8 @@ import InputBase from "@mui/material/InputBase";
 
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import { useSelector } from "react-redux";
+import { State } from "redux/reducers";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -123,22 +125,7 @@ const UserReview = ({ reviews }: any) => {
 
   React.useEffect(() => {
     setProgress(50);
-    // const timer = setInterval(() => {
-    //   setProgress((oldProgress) => {
-    //     if (oldProgress === 100) {
-    //       return 0;
-    //     }
-    //     const diff = Math.random() * 10;
-    //     return Math.min(oldProgress + diff, 100);
-    //   });
-    // }, 500);
-
-    // return () => {
-    //   clearInterval(timer);
-    // };
   }, []);
-
-  // console.log(reviews);
 
   return (
     <div>

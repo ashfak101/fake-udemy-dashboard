@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -35,6 +35,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import UserReview from "./UserReview";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "redux/reducers";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -132,8 +134,14 @@ const Reviews = () => {
   const [rateValueThree, setRateValueThree] = React.useState(3);
   const [rateValueFour, setRateValueFour] = React.useState(4);
   const [rateValueFive, setRateValueFive] = React.useState(5);
-  const [reviews, setReviews] = React.useState([]);
+  // const [reviews, setReviews] = React.useState([]);
   const [filterReview, setFilterReview] = React.useState([]);
+
+  const { reviews } = useSelector((state: State) => state.reviews);
+
+  console.log(filterReview);
+
+  const dispatch = useDispatch();
 
   const handleChanges = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -144,14 +152,19 @@ const Reviews = () => {
   };
 
   React.useEffect(() => {
-    fetch("/assets/review.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setReviews(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (reviews.length === 0) {
+      fetch("/assets/review.json")
+        .then((response) => response.json())
+        .then((data) => {
+          dispatch({
+            type: "REVIEW_FETCH",
+            payload: data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
 
     const filter = reviews.filter((review: any) => {
       if (value == 0) {

@@ -1,6 +1,10 @@
 import {
   Box,
   Button,
+  Checkbox,
+  Divider,
+  FormControlLabel,
+  ListItemIcon,
   Modal,
   Rating,
   TextField,
@@ -17,6 +21,14 @@ import CircularProgress, {
 import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { PersonAdd } from "@mui/icons-material";
+import AddIcon from "@mui/icons-material/Add";
+import FolderIcon from "@mui/icons-material/Folder";
+import { State } from "redux/reducers";
+import { useDispatch, useSelector } from "react-redux";
 
 const style = {
   position: "absolute" as "absolute",
@@ -90,6 +102,18 @@ const CourseNav = ({ progress, totallesson }: Props) => {
   const [comment, setComment] = useState("");
 
   const [value, setValue] = useState<any>(0);
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const openMenu = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloses = () => {
+    setAnchorEl(null);
+  };
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     let pro = 100 / totallesson;
     const result: any = progress * pro;
@@ -102,19 +126,30 @@ const CourseNav = ({ progress, totallesson }: Props) => {
     }
   }, [progress, totallesson]);
 
-  // get the value from modal text field
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setComment(event.target.value);
   };
 
+  const { reviews } = useSelector((state: State) => state.reviews);
+
   const handleSubmit = () => {
-    // get the data of the rateValue and comment and pass todays date
     const data = {
-      value,
-      comment,
-      date: new Date().toLocaleDateString(),
+      id: Math.random().toString(),
+      userName: "Hamdan Ahmed",
+      isDisliked: false,
+      isLiked: false,
+      reviewTime: new Date().toLocaleDateString(),
+      // round that rating value
+      rating: Math.round(value),
+      userReview: comment,
     };
     console.log(data);
+
+    dispatch({
+      type: "REVIEW_FETCH",
+      payload: [...reviews, data],
+    });
+
     setOpen(false);
   };
 
@@ -134,7 +169,14 @@ const CourseNav = ({ progress, totallesson }: Props) => {
         },
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", marginLeft: "20px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          marginLeft: "20px",
+          cursor: "pointer",
+        }}
+      >
         {" "}
         <Link href="/">
           <Image
@@ -299,19 +341,121 @@ const CourseNav = ({ progress, totallesson }: Props) => {
           sx={{
             border: "1px solid #fff",
             color: "#fff",
-            fontSize: "11px",
+
             px: 4,
             mr: 2,
             borderRadius: "0",
             display: "flex",
             alignItems: "center",
+            width: "83.94px",
+            height: "40px",
           }}
         >
-          Share{" "}
+          <Typography
+            sx={{
+              fontWeight: "bold",
+              fontSize: "14px",
+              marginTop: "2px",
+              marginLeft: "5px",
+            }}
+          >
+            Share
+          </Typography>
           <ReplySharpIcon
             sx={{ transform: " scaleX(-1)", marginLeft: "10px" }}
           />
         </Button>
+        <Box>
+          <Button
+            id="basic-button"
+            aria-controls={openMenu ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={openMenu ? "true" : undefined}
+            onClick={handleClick}
+            sx={{
+              border: "1px solid white",
+              marginRight: "10px",
+              borderRadius: "0px",
+              width: "83.94px",
+              height: "40px",
+            }}
+          >
+            <MoreVertIcon sx={{ color: "white" }} />
+          </Button>
+          <Menu
+            anchorEl={anchorEl}
+            id="account-menu"
+            open={openMenu}
+            onClose={handleCloses}
+            onClick={handleCloses}
+            PaperProps={{
+              elevation: 0,
+              sx: {
+                overflow: "visible",
+                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                mt: 1.5,
+                "& .MuiAvatar-root": {
+                  width: 32,
+                  height: 32,
+                  ml: -0.5,
+                  mr: 1,
+                },
+                "&:before": {
+                  content: '""',
+                  display: "block",
+                  position: "absolute",
+                  top: 0,
+                  right: 14,
+                  width: 10,
+                  height: 10,
+                  bgcolor: "background.paper",
+                  transform: "translateY(-50%) rotate(45deg)",
+                  zIndex: 0,
+                },
+                width: "258px",
+                height: "215px",
+              },
+            }}
+            transformOrigin={{ horizontal: "right", vertical: "top" }}
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          >
+            <MenuItem sx={{ color: "black", margin: "16px 16px 0px" }}>
+              <ListItemIcon>
+                <StarIcon fontSize="small" sx={{ color: "black" }} />
+              </ListItemIcon>
+              Favorite this course
+            </MenuItem>
+            <MenuItem sx={{ color: "black", margin: "16px 16px 0px" }}>
+              <ListItemIcon>
+                <FolderIcon fontSize="small" sx={{ color: "black" }} />
+              </ListItemIcon>
+              Archive this course
+            </MenuItem>
+            <Divider />
+            <MenuItem sx={{ margin: "16px 16px 0px" }}>
+              <FormControlLabel
+                disabled
+                control={<Checkbox />}
+                label={
+                  <>
+                    <Typography>New announcement emails</Typography>
+                  </>
+                }
+              />
+            </MenuItem>
+            <MenuItem sx={{ margin: "16px 16px 0px" }}>
+              <FormControlLabel
+                disabled
+                control={<Checkbox />}
+                label={
+                  <>
+                    <Typography>Promotional emails</Typography>
+                  </>
+                }
+              />
+            </MenuItem>
+          </Menu>
+        </Box>
       </Box>
     </Box>
   );

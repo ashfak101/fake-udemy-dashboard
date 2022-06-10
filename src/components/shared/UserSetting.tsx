@@ -6,14 +6,14 @@ const UserSetting = () => {
     return (
         <>
             <Box sx={{ display: 'flex', borderBottom: '1px solid #999', p: '20px 10px' }}>
-                <Avatar alt="AKemy Sharp" src='AK' sx={{ p: 0, background: 'black' }} />
+                <Avatar alt="Hamdan Ahmed" src='HA' sx={{ p: 0, background: 'black' }} />
                 <Box sx={{ ml: 1 }}>
                     <Typography sx={{
                         fontSize: '16px', fontWeight: '600', '&:hover': {
                             color: '#5624d0'
                         }, cursor: 'pointer'
-                    }}>Ashfakul Karim </Typography>
-                    <Typography sx={{ fontSize: '12px', color: '#999' }}>ashfakulkarim@staffaisa.org</Typography>
+                    }}>Hamdan Ahmed </Typography>
+                    <Typography sx={{ fontSize: '12px', color: '#999' }}>hamdanahmed@staffaisa.org</Typography>
                 </Box>
             </Box>
             <Box>

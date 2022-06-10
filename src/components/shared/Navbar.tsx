@@ -69,7 +69,7 @@ const Navbar = () => {
             component="div"
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
               <Link href="/">
                 <Image
                   src="/assets/images/udemylogo.svg"

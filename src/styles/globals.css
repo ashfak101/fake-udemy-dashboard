@@ -60,17 +60,33 @@ a {
   background-color: #6a6f73 !important;
 }
 
+/* .css-5xe99f-MuiLinearProgress-bar1 {
+  background-color: #6a6f73 !important;
+} */
+
 .MuiLinearProgress-root {
   background-color: #d1d7dc !important;
 }
+
+/* .css-eglki6-MuiLinearProgress-root {
+  background-color: #d1d7dc !important;
+} */
 
 .MuiTabs-indicator {
   background-color: transparent !important;
 }
 
+/* .css-10d9dml-MuiTabs-indicator {
+  background-color: transparent !important;
+} */
+
 .MuiTabs-root {
   border: 0 !important;
 }
+
+/* .css-pn24jx-MuiTabs-root {
+  border: 0 !important;
+} */
 
 .MuiButtonBase-root {
   max-width: 1000px !important;
@@ -78,6 +94,20 @@ a {
   min-height: 0 !important;
 }
 
+/* .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  max-width: 1000px !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+} */
+
 .css-19kzrtu {
   padding-left: 0 !important;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  padding: 0;
+}
+
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
+  width: 100% !important;
 }

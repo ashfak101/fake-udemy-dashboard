@@ -5,8 +5,20 @@ import Navbar from "components/shared/Navbar";
 import { MainCourse } from "components/types";
 import { NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "redux/reducers";
 
-const Home: NextPage<{ data: MainCourse[] }> = ({ data }) => {
+const Home: NextPage<{ data: MainCourse[] }> = ({ data, reviews }: any) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: "REVIEW_FETCH",
+      payload: reviews,
+    });
+  }, [dispatch, reviews]);
+
   return (
     <div>
       <Head>
@@ -28,10 +40,16 @@ export const getServerSideProps = async () => {
     const res = await fetch(
       "https://fake-udemy-dashboard.vercel.app/assets/data.json"
     );
+
     const data = await res.json();
+
+    const reviewRes = await fetch("https://jsonkeeper.com/b/QQK5");
+    const reviews = await reviewRes.json();
+
     return {
       props: {
         data: data,
+        reviews: reviews,
       },
     };
   } catch (err) {

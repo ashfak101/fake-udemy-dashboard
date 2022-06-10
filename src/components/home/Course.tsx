@@ -22,6 +22,9 @@ import React, { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 import ReplySharpIcon from "@mui/icons-material/ReplySharp";
+import AddIcon from "@mui/icons-material/Add";
+import StarIcon from "@mui/icons-material/Star";
+import FolderIcon from "@mui/icons-material/Folder";
 
 interface Props {
   data: MainCourse[];
@@ -102,33 +105,43 @@ const Course = ({ data }: Props) => {
                       transform: "translateY(-50%) rotate(45deg)",
                       zIndex: 0,
                     },
+                    width: "260px",
+                    height: "273.77px",
                   },
                 }}
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <MenuItem>Lists</MenuItem>
-                <MenuItem>You have no list</MenuItem>
+                <MenuItem sx={{ color: "gray", fontWeight: "bold", margin:'16px 16px 0px'}}>
+                  Lists
+                </MenuItem>
+                <MenuItem sx={{ color: "gray",margin:'16px 16px 0px' }}>You have no list</MenuItem>
                 <Divider />
-                <MenuItem>
+                <MenuItem sx={{margin:'16px 16px 0px'}}>
                   <ReplySharpIcon
                     sx={{ transform: " scaleX(-1)", marginRight: "10px" }}
                   >
-                    <PersonAdd fontSize="small" />
+                    <PersonAdd fontSize="small" sx={{ color: "black" }} />
                   </ReplySharpIcon>
                   Share
                 </MenuItem>
-                <MenuItem>
+                <MenuItem sx={{margin:'16px 16px 0px'}}>
                   <ListItemIcon>
-                    <Settings fontSize="small" />
+                    <AddIcon fontSize="small" sx={{ color: "black" }} />
                   </ListItemIcon>
-                  Settings
+                  Create New List
                 </MenuItem>
-                <MenuItem>
+                <MenuItem sx={{margin:'16px 16px 0px'}}>
                   <ListItemIcon>
-                    <Logout fontSize="small" />
+                    <StarIcon fontSize="small" sx={{ color: "black" }} />
                   </ListItemIcon>
-                  Logout
+                  Favorite
+                </MenuItem>
+                <MenuItem sx={{margin:'16px 16px 0px'}}>
+                  <ListItemIcon>
+                    <FolderIcon fontSize="small" sx={{ color: "black" }} />
+                  </ListItemIcon>
+                  Archive
                 </MenuItem>
               </Menu>
             </Box>
