@@ -168,18 +168,23 @@ const Reviews = () => {
 
     const filter = reviews.filter((review: any) => {
       if (value == 0) {
-        return review.rating == 5;
+        // show all reviews
+        return true;
+        // return review.rating == 5;
       }
       if (value == 1) {
-        return review.rating == 4;
+        return review.rating == 5;
       }
       if (value == 2) {
-        return review.rating == 3;
+        return review.rating == 4;
       }
       if (value == 3) {
-        return review.rating == 2;
+        return review.rating == 3;
       }
       if (value == 4) {
+        return review.rating == 2;
+      }
+      if (value == 5) {
         return review.rating == 1;
       }
     });
@@ -263,6 +268,29 @@ const Reviews = () => {
                     }}
                   >
                     <Tab
+                      // label={
+                      //   <>
+                      //     <Box sx={{ display: "flex", alignItems: "center" }}>
+                      //       <Box sx={{ width: "500px", marginRight: "10px" }}>
+                      //         <LinearProgress
+                      //           variant="determinate"
+                      //           value={progressOne}
+                      //         />
+                      //       </Box>
+                      //       <Box>
+                      //         <Rating
+                      //           name="read-only"
+                      //           value={rateValueFive}
+                      //           readOnly
+                      //         />
+                      //       </Box>
+                      //       <Typography>{progressOne}%</Typography>
+                      //     </Box>
+                      //   </>
+                      // }
+                      {...a11yProps(0)}
+                    />
+                    <Tab
                       label={
                         <>
                           <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -283,7 +311,7 @@ const Reviews = () => {
                           </Box>
                         </>
                       }
-                      {...a11yProps(0)}
+                      {...a11yProps(1)}
                     />
                     <Tab
                       label={
@@ -306,7 +334,7 @@ const Reviews = () => {
                           </Box>
                         </>
                       }
-                      {...a11yProps(1)}
+                      {...a11yProps(2)}
                     />
                     <Tab
                       label={
@@ -329,7 +357,7 @@ const Reviews = () => {
                           </Box>
                         </>
                       }
-                      {...a11yProps(2)}
+                      {...a11yProps(3)}
                     />
                     <Tab
                       label={
@@ -352,7 +380,7 @@ const Reviews = () => {
                           </Box>
                         </>
                       }
-                      {...a11yProps(3)}
+                      {...a11yProps(4)}
                     />
                     <Tab
                       label={
@@ -375,7 +403,7 @@ const Reviews = () => {
                           </Box>
                         </>
                       }
-                      {...a11yProps(4)}
+                      {...a11yProps(5)}
                     />
                   </Tabs>
                 </Box>
@@ -444,11 +472,12 @@ const Reviews = () => {
                                 {/* <MenuItem value="">
                                   <em>All ratings</em>
                                 </MenuItem> */}
-                                <MenuItem value={0}>Five Stars</MenuItem>
-                                <MenuItem value={1}>Four Stars</MenuItem>
-                                <MenuItem value={2}>Three Stars</MenuItem>
-                                <MenuItem value={3}>Two Stars</MenuItem>
-                                <MenuItem value={4}>One Stars</MenuItem>
+                                <MenuItem value={0}>All ratings</MenuItem>
+                                <MenuItem value={1}>Five Stars</MenuItem>
+                                <MenuItem value={2}>Four Stars</MenuItem>
+                                <MenuItem value={3}>Three Stars</MenuItem>
+                                <MenuItem value={4}>Two Stars</MenuItem>
+                                <MenuItem value={5}>One Stars</MenuItem>
                               </Select>
                             </FormControl>
                           </Box>
@@ -474,6 +503,9 @@ const Reviews = () => {
                             <UserReview reviews={filterReview} />
                           </TabPanel>
                           <TabPanel value={value} index={4}>
+                            <UserReview reviews={filterReview} />
+                          </TabPanel>
+                          <TabPanel value={value} index={5}>
                             <UserReview reviews={filterReview} />
                           </TabPanel>
                         </Item>

@@ -24,6 +24,7 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import { useSelector } from "react-redux";
 import { State } from "redux/reducers";
+import moment from "moment";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -127,6 +128,8 @@ const UserReview = ({ reviews }: any) => {
     setProgress(50);
   }, []);
 
+  const dateTimeAgo = moment(reviews.createdAt).fromNow();
+
   return (
     <div>
       <Box>
@@ -182,7 +185,7 @@ const UserReview = ({ reviews }: any) => {
                           marginTop: "-5px",
                         }}
                       >
-                        {review.reviewTime}
+                        {dateTimeAgo}
                       </Typography>
                     </Box>
                   </Box>

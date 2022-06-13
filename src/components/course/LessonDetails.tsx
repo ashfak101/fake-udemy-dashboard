@@ -293,7 +293,7 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
                               onClick={handleCheckAnswer}
                               disabled={isDisabled}
                               sx={{
-                                background: "#333",
+                                background: "lightgray",
                                 color: "#fff",
                                 borderRadius: "0",
                                 px: 2,
@@ -303,7 +303,7 @@ const LessonDetails = ({ module, lesson, setGridCount, gridCount }: Props) => {
                                 },
                               }}
                             >
-                              Check answer{" "}
+                              <Typography sx={{textTransform:'none', padding:'10px'}}>Check answer{" "}</Typography>
                             </Button>
                           )}
                         </>
