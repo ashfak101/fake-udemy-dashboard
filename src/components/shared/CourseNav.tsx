@@ -147,7 +147,7 @@ const CourseNav = ({ progress, totallesson }: Props) => {
 
     dispatch({
       type: "REVIEW_FETCH",
-      payload: [...reviews, data],
+      payload: [data, ...reviews],
     });
 
     setOpen(false);
