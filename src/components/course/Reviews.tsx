@@ -196,6 +196,14 @@ const Reviews = () => {
     setProgressFive(1);
   }, [value, reviews]);
 
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const search = event.target.value;
+    const filter = reviews.filter((review: any) => {
+      return review.userName.toLowerCase().includes(search.toLowerCase());
+    });
+    setFilterReview(filter);
+  };
+
   return (
     <div>
       <Box>
@@ -450,6 +458,7 @@ const Reviews = () => {
                             <StyledInputBase
                               placeholder="Search Reviews"
                               inputProps={{ "aria-label": "search" }}
+                              onChange={handleSearch}
                             />
                           </Search>
                         </Item>

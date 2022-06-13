@@ -104,7 +104,7 @@ const CourseContent = ({ courses, setProgress }: Props) => {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <Box>
+            <Box sx={{margin:'0px 18px'}}>
               <Typography
                 sx={{
                   color: "#333",
