@@ -35,7 +35,7 @@ const Home: NextPage<{ data: MainCourse[] }> = ({ data, reviews }: any) => {
 };
 
 export default Home;
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const res = await fetch(
       "https://fake-udemy-dashboard.vercel.app/assets/data.json"
