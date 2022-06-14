@@ -29,6 +29,7 @@ import AddIcon from "@mui/icons-material/Add";
 import FolderIcon from "@mui/icons-material/Folder";
 import { State } from "redux/reducers";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const style = {
   position: "absolute" as "absolute",
@@ -149,6 +150,23 @@ const CourseNav = ({ progress, totallesson }: Props) => {
       type: "REVIEW_FETCH",
       payload: [data, ...reviews],
     });
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Review Added Successfully'
+    })
 
     setOpen(false);
   };
