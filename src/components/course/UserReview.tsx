@@ -25,6 +25,8 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "redux/reducers";
 import moment from "moment";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -224,7 +226,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                           marginTop: "-5px",
                         }}
                       >
-                        {dateTimeAgo}
+                        {review.reviewTime}
                       </Typography>
                     </Box>
                   </Box>
@@ -251,7 +253,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box sx={{ marginRight: "10px" }}>
                       {review.isLiked === true ? (
-                        <ThumbUpOffAltIcon
+                        <ThumbUpIcon
                           sx={{
                             border: "1px solid black",
                             borderRadius: "50%",
@@ -261,7 +263,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                           }}
                         />
                       ) : (
-                        <ThumbUpOffAltIcon
+                        <ThumbUpIcon
                           sx={{
                             border: "1px solid black",
                             borderRadius: "50%",
@@ -275,7 +277,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                     </Box>
                     <Box sx={{ marginRight: "10px" }}>
                       {review.isDisliked === true ? (
-                        <ThumbDownOffAltIcon
+                        <ThumbDownIcon
                           sx={{
                             border: "1px solid black",
                             borderRadius: "50%",
@@ -285,7 +287,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                           }}
                         />
                       ) : (
-                        <ThumbDownOffAltIcon
+                        <ThumbDownIcon
                           sx={{
                             border: "1px solid black",
                             borderRadius: "50%",

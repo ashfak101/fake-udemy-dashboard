@@ -133,13 +133,19 @@ const CourseNav = ({ progress, totallesson }: Props) => {
 
   const { reviews } = useSelector((state: State) => state.reviews);
 
+  const getCreatedTime = (createdAt: string) => {
+    const moment = require("moment");
+    const time = moment(createdAt).fromNow();
+    return time;
+  };
+
   const handleSubmit = () => {
     const data = {
       id: Math.random().toString(),
       userName: "Hamdan Ahmed",
       isDisliked: false,
       isLiked: false,
-      reviewTime: new Date().toLocaleDateString(),
+      reviewTime: getCreatedTime(new Date().toISOString()),
       // round that rating value
       rating: Math.round(value),
       userReview: comment,
@@ -153,20 +159,20 @@ const CourseNav = ({ progress, totallesson }: Props) => {
 
     const Toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: "bottom-end",
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-    
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
     Toast.fire({
-      icon: 'success',
-      title: 'Review Added Successfully'
-    })
+      icon: "success",
+      title: "Review Added Successfully",
+    });
 
     setOpen(false);
   };
