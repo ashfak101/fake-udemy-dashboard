@@ -139,8 +139,6 @@ const Reviews = () => {
 
   const { reviews } = useSelector((state: State) => state.reviews);
 
-  console.log(filterReview);
-
   const dispatch = useDispatch();
 
   const handleChanges = (event: React.SyntheticEvent, newValue: number) => {
@@ -433,11 +431,7 @@ const Reviews = () => {
               <Grid item xs={12} xl={12}>
                 <Box>
                   <Box sx={{ flexGrow: 1 }}>
-                    <Grid
-                      container
-                      spacing={2}
-                      sx={{ borderBottom: "1px solid lightgray" }}
-                    >
+                    <Grid container spacing={2}>
                       <Grid item xs={12} xl={9}>
                         <Item
                           sx={{
@@ -500,22 +494,40 @@ const Reviews = () => {
                           }}
                         >
                           <TabPanel value={value} index={0}>
-                            <UserReview reviews={filterReview} />
+                            <UserReview
+                              reviews={filterReview}
+                              allReviews={reviews}
+                            />
                           </TabPanel>
                           <TabPanel value={value} index={1}>
-                            <UserReview reviews={filterReview} />
+                            <UserReview
+                              reviews={filterReview}
+                              allReviews={reviews}
+                            />
                           </TabPanel>
                           <TabPanel value={value} index={2}>
-                            <UserReview reviews={filterReview} />
+                            <UserReview
+                              reviews={filterReview}
+                              allReviews={reviews}
+                            />
                           </TabPanel>
                           <TabPanel value={value} index={3}>
-                            <UserReview reviews={filterReview} />
+                            <UserReview
+                              reviews={filterReview}
+                              allReviews={reviews}
+                            />
                           </TabPanel>
                           <TabPanel value={value} index={4}>
-                            <UserReview reviews={filterReview} />
+                            <UserReview
+                              reviews={filterReview}
+                              allReviews={reviews}
+                            />
                           </TabPanel>
                           <TabPanel value={value} index={5}>
-                            <UserReview reviews={filterReview} />
+                            <UserReview
+                              reviews={filterReview}
+                              allReviews={reviews}
+                            />
                           </TabPanel>
                         </Item>
                       </Grid>

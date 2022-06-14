@@ -22,7 +22,7 @@ import InputBase from "@mui/material/InputBase";
 
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { State } from "redux/reducers";
 import moment from "moment";
 
@@ -109,7 +109,7 @@ function a11yProps(index: number) {
   };
 }
 
-const UserReview = ({ reviews }: any) => {
+const UserReview = ({ reviews, allReviews }: any) => {
   const [ratingValue, setRatingValue] = React.useState<number | null>(4.5);
   const [progress, setProgress] = React.useState(0);
   const [age, setAge] = React.useState("");
@@ -130,12 +130,51 @@ const UserReview = ({ reviews }: any) => {
 
   const dateTimeAgo = moment(reviews.createdAt).fromNow();
 
+  // -----------------------------------------------
+
+  const dispatch = useDispatch();
+
+  const handleIsLikedClicked = (selectedId: any) => {
+    allReviews.map((review: any) => {
+      if (review.id === selectedId) {
+        if (review.isLiked === true) {
+          review.isDisliked = false;
+          review.isLiked = false;
+        } else {
+          review.isLiked = true;
+          review.isDisliked = false;
+        }
+      }
+    });
+
+    dispatch({ type: "REVIEW_FETCH", payload: allReviews });
+  };
+  const handleIsDislikedClicked = (selectedId: any) => {
+    allReviews.map((review: any) => {
+      if (review.id === selectedId) {
+        if (review.isDisliked === true) {
+          review.isDisliked = false;
+          review.isLiked = false;
+        } else {
+          review.isDisliked = true;
+          review.isLiked = false;
+        }
+      }
+    });
+
+    dispatch({ type: "REVIEW_FETCH", payload: allReviews });
+  };
+
   return (
     <div>
       <Box>
         {reviews.map((review: any) => (
           <Box key={review.id} sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
+            <Grid
+              container
+              spacing={2}
+              sx={{ borderBottom: "1px solid lightgray" }}
+            >
               <Grid item xs={12} xl={1}>
                 <Item
                   sx={{
@@ -211,26 +250,52 @@ const UserReview = ({ reviews }: any) => {
                   </Typography>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box sx={{ marginRight: "10px" }}>
-                      <ThumbUpOffAltIcon
-                        sx={{
-                          border: "1px solid black",
-                          borderRadius: "50%",
-                          fontSize: "32px",
-                          padding: "3px",
-                          color: "#1c1d1f",
-                        }}
-                      />
+                      {review.isLiked === true ? (
+                        <ThumbUpOffAltIcon
+                          sx={{
+                            border: "1px solid black",
+                            borderRadius: "50%",
+                            fontSize: "32px",
+                            padding: "3px",
+                            color: "green",
+                          }}
+                        />
+                      ) : (
+                        <ThumbUpOffAltIcon
+                          sx={{
+                            border: "1px solid black",
+                            borderRadius: "50%",
+                            fontSize: "32px",
+                            padding: "3px",
+                            color: "#1c1d1f",
+                          }}
+                          onClick={() => handleIsLikedClicked(review.id)}
+                        />
+                      )}
                     </Box>
                     <Box sx={{ marginRight: "10px" }}>
-                      <ThumbDownOffAltIcon
-                        sx={{
-                          border: "1px solid black",
-                          borderRadius: "50%",
-                          fontSize: "32px",
-                          padding: "3px",
-                          color: "#1c1d1f",
-                        }}
-                      />
+                      {review.isDisliked === true ? (
+                        <ThumbDownOffAltIcon
+                          sx={{
+                            border: "1px solid black",
+                            borderRadius: "50%",
+                            fontSize: "32px",
+                            padding: "3px",
+                            color: "red",
+                          }}
+                        />
+                      ) : (
+                        <ThumbDownOffAltIcon
+                          sx={{
+                            border: "1px solid black",
+                            borderRadius: "50%",
+                            fontSize: "32px",
+                            padding: "3px",
+                            color: "#1c1d1f",
+                          }}
+                          onClick={() => handleIsDislikedClicked(review.id)}
+                        />
+                      )}
                     </Box>
                     <Box>
                       <Typography
