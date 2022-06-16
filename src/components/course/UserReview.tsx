@@ -261,6 +261,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                             padding: "3px",
                             color: "green",
                           }}
+                          onClick={() => handleIsLikedClicked(review.id)}
                         />
                       ) : (
                         <ThumbUpIcon
@@ -285,6 +286,7 @@ const UserReview = ({ reviews, allReviews }: any) => {
                             padding: "3px",
                             color: "red",
                           }}
+                          onClick={() => handleIsDislikedClicked(review.id)}
                         />
                       ) : (
                         <ThumbDownIcon
